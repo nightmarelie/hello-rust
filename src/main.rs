@@ -4,9 +4,13 @@ fn main() {
     // wait for 3 sec
     std::thread::sleep(std::time::Duration::from_secs(3));
 
-    let mut x = 5;
-    println!("The value of x is: {}", x);
+    let mut x:i32 = 5;
+    println!("The value of x is: {} (first time)", x);
 
     x = 10;
-    println!("The value of x is: {}", x);
+    println!("The value of x is: {} (second time)", x);
+
+    // shadowing
+    let x = 11;
+    println!("The value of x is: {} (third time, after shadowing)", x);
 }
