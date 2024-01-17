@@ -13,4 +13,7 @@ fn main() {
     // shadowing
     let x = 11;
     println!("The value of x is: {} (third time, after shadowing)", x);
+
+    const MAX_POINTER: u32 = 200_000_000;
+    println!("The value of MAX_POINTER is {}", MAX_POINTER);
 }
