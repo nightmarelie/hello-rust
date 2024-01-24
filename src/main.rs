@@ -16,4 +16,9 @@ fn main() {
 
     const MAX_POINTER: u32 = 200_000_000;
     println!("The value of MAX_POINTER is {}", MAX_POINTER);
+
+    // define a var and assign
+    let x;
+    x = 1;
+    println!("The value of x is: {})", x);
 }
