@@ -21,4 +21,19 @@ fn main() {
     let x;
     x = 1;
     println!("The value of x is: {})", x);
+
+    // DATA TYPES
+    // Scalar types
+    // - Integers
+    // - Floating-point numbers
+    // - Booleans
+    // - Characters
+    // Compound types
+    // - Tuples
+    // - Arrays
+    // Custom types
+    // - Structs
+    // - Enums
+
+
 }
