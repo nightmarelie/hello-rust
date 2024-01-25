@@ -2,7 +2,7 @@ fn main() {
     println!("Hello, world!");
 
     // wait for 3 sec
-    std::thread::sleep(std::time::Duration::from_secs(3));
+    // std::thread::sleep(std::time::Duration::from_secs(3));
 
     let mut x: i32 = 5;
     println!("The value of x is: {} (first time)", x);
@@ -122,8 +122,74 @@ fn main() {
 
     // Compound types
     // - Tuples
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+    println!("The value of tup is: {:?}", tup);
+    // destructuring
+    let (x, y, z) = tup;
+    println!("The value of x, y, z is: {}, {}, {}", x, y, z);
+    // access by index
+    println!("The value of tup.0 is: {}", tup.0);
+    println!("The value of tup.1 is: {}", tup.1);
+    println!("The value of tup.2 is: {}", tup.2);
+
     // - Arrays
+    let a = [1, 2, 3, 4, 5];
+    println!("The value of a is: {:?}", a);
+    // access by index
+    println!("The value of a[0] is: {}", a[0]);
+    println!("The value of a[1] is: {}", a[1]);
+    println!("The value of a[2] is: {}", a[2]);
+    println!("The value of a[3] is: {}", a[3]);
+    println!("The value of a[4] is: {}", a[4]);
+
+    // iterate over the array
+    for element in a.iter() {
+        println!("The value of element is: {}", element);
+    }
+
+    // - Slices
+    let a = [1, 2, 3, 4, 5];
+    let slice = &a[1..3];
+    println!("The value of slice is: {:?}", slice);
+
+    // - Strings
+    let s = String::from("hello");
+    println!("The value of s is: {}", s);
+    // - String literals
+    // let s = "hello";
+
+    // Vector
+    let v = vec![1, 2, 3, 4, 5];
+    println!("The value of v is: {:?}", v);
+
     // Custom types
     // - Structs
+    // struct User {
+    //     username: String,
+    //     email: String,
+    //     sign_in_count: u64,
+    //     active: bool,
+    // }
+    // // print all User fields
+    // println!("User username is: {}", User::username);
+
     // - Enums
+    #[derive(Debug)]
+    enum IpAddrKind {
+        V4,
+        V6,
+    }
+
+    let four = IpAddrKind::V4;
+    let six = IpAddrKind::V6;
+    println!("four: {:?}", four);
+    println!("six: {:?}", six);
+
+    // match
+    let four = IpAddrKind::V4;
+    match four {
+        IpAddrKind::V4 => println!("four: {:?}", four),
+        IpAddrKind::V6 => println!("six: {:?}", six),
+    }
 }
