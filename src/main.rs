@@ -4,7 +4,7 @@ fn main() {
     // wait for 3 sec
     std::thread::sleep(std::time::Duration::from_secs(3));
 
-    let mut x:i32 = 5;
+    let mut x: i32 = 5;
     println!("The value of x is: {} (first time)", x);
 
     x = 10;
@@ -98,6 +98,9 @@ fn main() {
     let t = true;
     let f: bool = false;
 
+    // let not_true = !t;
+    // let true_and_false = t && f;
+
     if t {
         println!("t is {}", t);
     } else {
@@ -105,12 +108,22 @@ fn main() {
     }
 
     // - Characters
+    let c = 'z';
+    let z = 'ℤ';
+    let heart_eyed_cat = '😻';
+
+    // print all of them at once
+    println!("{} {} {}", c, z, heart_eyed_cat);
+
+    // iterate over the string
+    for c in "नमस्ते".chars() {
+        println!("{}", c);
+    }
+
     // Compound types
     // - Tuples
     // - Arrays
     // Custom types
     // - Structs
     // - Enums
-
-
 }
