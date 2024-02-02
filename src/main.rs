@@ -1,8 +1,13 @@
 fn main() {
     println!("Hello, world!");
-    another();
+    let result: i8 = another(1);
+    println!("Result: {}", result);
 }
 
-fn another() {
-    println!("Another function.");
+fn another(num: i8)  -> i8 {
+    println!("Another function. {}", num);
+
+    return num + 1;
 }
+
+
