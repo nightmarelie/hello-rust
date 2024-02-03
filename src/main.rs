@@ -1,13 +1,9 @@
 fn main() {
-    println!("Hello, world!");
-    let result: i8 = another(1);
-    println!("Result: {}", result);
+    let number = 3;
+
+    if number < 5 {
+        println!("Number is less than 3");
+    } else {
+        println!("Number is greater than or equal to 3");
+    }
 }
-
-fn another(num: i8)  -> i8 {
-    println!("Another function. {}", num);
-
-    return num + 1;
-}
-
-
