@@ -1,9 +1,11 @@
 fn main() {
     let number = 3;
 
-    if number < 5 {
-        println!("Number is less than 3");
+    let condition  = if number < 5 {
+        "Number is less than 3";
     } else {
-        println!("Number is greater than or equal to 3");
-    }
+        "Number is greater than or equal to 3";
+    };
+
+    println!("The number is: {}", number);
 }
