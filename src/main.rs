@@ -1,15 +1,14 @@
 fn main() {
-    let number = 15;
+    let number1 = 15;
+    let number2= 4;
 
-    if number % 2 == 0 {
-        println!("{} is even", number);
+    if number1 > number2 && number1 % number2 == 0 {
+        println!("{} is greater than {} and divisible by {}", number1, number2, number2);
+    } else if number1 > number2 {
+        println!("{} is greater than {}", number1, number2);
+    } else if number1 == number2 {
+        println!("{} is equal to {}", number1, number2);
     } else {
-        println!("{} is odd", number);
-
-        if number > 10 {
-            println!("{} is greater than 10", number);
-        } else {
-            println!("{} is less than 10", number);
-        }
+        println!("{} is less than {}", number1, number2);
     }
 }
