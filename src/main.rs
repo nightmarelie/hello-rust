@@ -1,12 +1,15 @@
 fn main() {
-    let number = 3;
+    let number = 15;
 
-    // if-else in rust is expression
-    let condition  = if number < 5 {
-        "Number is less than 3";
+    if number % 2 == 0 {
+        println!("{} is even", number);
     } else {
-        "Number is greater than or equal to 3";
-    };
+        println!("{} is odd", number);
 
-    println!("The number is: {}", number);
+        if number > 10 {
+            println!("{} is greater than 10", number);
+        } else {
+            println!("{} is less than 10", number);
+        }
+    }
 }
