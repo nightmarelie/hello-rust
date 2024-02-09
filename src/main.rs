@@ -1,10 +1,7 @@
 fn main() {
-    let mut counter = 4;
+    let numbers = [1, 2, 3, 4, 5];
 
-    while counter != 0 {
-        println!("{}!", counter);
-
-        counter -= 1;
-        std::thread::sleep(std::time::Duration::from_secs(1));
+    for number in numbers.iter() {
+        println!("The number is: {}", number);
     }
 }
