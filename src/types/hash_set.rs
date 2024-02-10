@@ -1,4 +1,4 @@
-pub fn example (hash_set: HashSet<i32>) -> HashSet<i32> {
+pub fn example(hash_set: HashSet<i32>) -> HashSet<i32> {
     let mut numbers = hash_set;
 
     numbers.insert(10);
@@ -23,15 +23,16 @@ mod tests {
         numbers.insert(5);
         numbers = example(numbers);
 
-        let mut expected = HashSet::new();
-        expected.insert(1);
-        expected.insert(2);
-        expected.insert(3);
-        expected.insert(4);
-        expected.insert(5);
-        expected.insert(10);
-        expected.insert(11);
-        expected.insert(12);
+        let mut expected = HashSet::from([
+            1,
+            2,
+            3,
+            4,
+            5,
+            10,
+            11,
+            12,
+        ]);
 
         assert_eq!(numbers, expected);
     }
