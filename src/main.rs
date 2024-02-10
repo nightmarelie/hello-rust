@@ -1,7 +1,11 @@
 fn main() {
-    let numbers = [1, 2, 3, 4, 5];
+    let hello = "Hello, world!";
 
-    for number in numbers.iter() {
-        println!("The number is: {}", number);
+    for c in hello.chars() {
+        println!("{}", c);
+    }
+
+    for number in (1..4).rev() {
+        println!("{}", number);
     }
 }
