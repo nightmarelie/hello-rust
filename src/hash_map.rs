@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 pub fn example (hash_map: HashMap<i32, i32>) -> HashMap<i32, i32> {
     let mut numbers = hash_map;
 
@@ -8,7 +10,7 @@ pub fn example (hash_map: HashMap<i32, i32>) -> HashMap<i32, i32> {
     return numbers;
 }
 
-pub fn example2 (hash_map: HashMap<str, i32>) -> HashMap<i32, i32> {
+pub fn example2 (hash_map: HashMap<&str, i32>) -> HashMap<&str, i32> {
     let mut vikings = hash_map;
 
     vikings.insert("Einar", 25);
@@ -31,15 +33,16 @@ mod tests {
         numbers.insert(5, 5);
         numbers = example(numbers);
 
-        let mut expected = HashMap::new();
-        expected.insert(1, 1);
-        expected.insert(2, 2);
-        expected.insert(3, 3);
-        expected.insert(4, 4);
-        expected.insert(5, 5);
-        expected.insert(10, 10);
-        expected.insert(11, 11);
-        expected.insert(12, 12);
+        let mut expected = HashMap::from([
+            (1, 1),
+            (2, 2),
+            (3, 3),
+            (4, 4),
+            (5, 5),
+            (10, 10),
+            (11, 11),
+            (12, 12),
+        ]);
 
         assert_eq!(numbers, expected);
     }
