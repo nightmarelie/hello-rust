@@ -33,7 +33,7 @@ mod tests {
         numbers.insert(5, 5);
         numbers = example(numbers);
 
-        let mut expected = HashMap::from([
+        let expected = HashMap::from([
             (1, 1),
             (2, 2),
             (3, 3),

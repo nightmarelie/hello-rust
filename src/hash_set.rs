@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 pub fn example(hash_set: HashSet<i32>) -> HashSet<i32> {
     let mut numbers = hash_set;
 
@@ -23,7 +25,7 @@ mod tests {
         numbers.insert(5);
         numbers = example(numbers);
 
-        let mut expected = HashSet::from([
+        let expected = HashSet::from([
             1,
             2,
             3,

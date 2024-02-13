@@ -1,7 +1,10 @@
 use std::collections::HashMap;
+use std::collections::HashSet;
 mod boolean;
 mod hash_map;
 mod vec;
+
+mod hash_set;
 
 fn main() {
     // Bool example
@@ -17,5 +20,11 @@ fn main() {
     // Vec example
     let mut numbers: Vec<i32> = vec![1, 2, 3, 4, 5];
     numbers = vec::example(numbers);
-    println!("The result of vec example is: {:?}", numbers)
+    println!("The result of vec example is: {:?}", numbers);
+
+    // HashSet example
+    let mut numbers = HashSet::new();
+    numbers.insert(1);
+    numbers.insert(2);
+    println!("The result of hash_set example is: {:?}", hash_set::example(numbers));
 }
