@@ -5,6 +5,7 @@ mod hash_map;
 mod vec;
 
 mod hash_set;
+mod structure;
 
 fn main() {
     // Bool example
@@ -27,4 +28,8 @@ fn main() {
     numbers.insert(1);
     numbers.insert(2);
     println!("The result of hash_set example is: {:?}", hash_set::example(numbers));
+
+    // Structure example
+    let game = structure::example();
+    println!("The result of structure example is: {:?}", game);
 }
