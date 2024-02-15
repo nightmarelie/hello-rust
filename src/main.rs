@@ -34,6 +34,6 @@ fn main() {
     println!("The result of structure example is: {:?}", game);
     // read all properties
     for player in game.players {
-        println!("Player: {:?}", player);
+        println!("Player: {}", player.name);
     }
 }
