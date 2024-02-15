@@ -32,4 +32,8 @@ fn main() {
     // Structure example
     let game = structure::example();
     println!("The result of structure example is: {:?}", game);
+    // read all properties
+    for player in game.players {
+        println!("Player: {:?}", player);
+    }
 }

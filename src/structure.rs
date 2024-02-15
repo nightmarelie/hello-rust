@@ -19,16 +19,20 @@ impl Player {
 
 #[derive(Debug)]
 pub struct Game {
-    players: Vec<Player>,
+    pub players: Vec<Player>,
 }
 
 pub fn example () -> Game {
     let player1 = Player::new("Oleksii");
     let player2 = Player::new("Anna");
 
-    let game = Game {
+    let mut game = Game {
         players: vec![player1, player2],
     };
+
+    for player in &mut game.players {
+        player.play(10);
+    }
 
     return game;
 }
@@ -43,5 +47,13 @@ mod tests {
         let game = example();
 
         assert_eq!(game.players.len(), 2);
+    }
+
+    #[test]
+    fn test_player() {
+        let mut player = Player::new("Oleksii");
+        player.play(10);
+
+        assert_eq!(player.score, 10);
     }
 }
