@@ -28,3 +28,13 @@ cargo run -q
 ```bash
 cargo test
 ```
+
+## Build the project
+```bash
+cargo build --release
+```
+
+## Check the project
+```bash
+cargo check
+```
