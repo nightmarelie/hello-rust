@@ -1,7 +1,7 @@
 #[derive(Debug)]
 pub struct Player {
     pub name: String,
-    score: i32,
+    pub score: i32,
 }
 
 impl Player {
