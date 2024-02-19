@@ -6,7 +6,8 @@
 //
 // mod hash_set;
 // mod structure;
-mod guessing_game;
+// mod guessing_game;
+mod variable;
 
 fn main() {
     // // Bool example
@@ -39,5 +40,10 @@ fn main() {
     //     println!("Player score: {}", player.score);
     // }
 
-    guessing_game::run();
+    // Guessing game
+    // guessing_game::run();
+
+    // Variable example
+    let result = variable::example();
+    println!("The result of variable example is: {}", result);
 }
