@@ -8,6 +8,7 @@
 // mod structure;
 // mod guessing_game;
 mod variable;
+mod numbers;
 
 fn main() {
     // // Bool example

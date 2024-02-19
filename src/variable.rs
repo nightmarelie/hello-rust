@@ -32,7 +32,6 @@ pub fn example () -> i32 {
     // 4.3 Scalar types represent a single value. Rust has four primary scalar types: integers, floating-point numbers, Booleans, and characters
     // 4.4 Compound types can group multiple values into one type. Rust has two primitive compound types: tuples and arrays
 
-
     return x;
 }
 
