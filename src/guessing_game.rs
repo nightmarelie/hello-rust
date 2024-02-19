@@ -2,7 +2,7 @@ use std::io;
 use std::cmp::Ordering;
 use rand::{thread_rng, Rng};
 
-pub fn run () {
+pub fn run() {
     println!("Guess the number!");
 
     let secret_number = thread_rng().gen_range(1..102);
@@ -11,15 +11,17 @@ pub fn run () {
 
     println!("Please input your guess.");
 
-    let mut guess =  String::new();
+    let mut guess = String::new();
 
     io::stdin().read_line(&mut guess).expect("Failed to read line");
 
+    let guess: i32 = guess.trim().parse().expect("Can't parse the guess to a number!");
+
     println!("You guessed: {}", guess);
 
-    let result = guess.trim().parse::<i32>().expect("Can't parse the guess!").cmp(&secret_number);
-
-    assert_eq!(result, Ordering::Equal);
-
-    println!("The result is: {:?}", result);
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("Too small!"),
+        Ordering::Greater => println!("Too big!"),
+        Ordering::Equal => println!("You win!"),
+    }
 }
