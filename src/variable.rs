@@ -1,3 +1,7 @@
+// Unlike constants static variables are stored in a dedicated memory location and can be mutated
+pub static HELLO_WORLD: &str = "Hello, world!";
+pub static mut COUNTER: u32 = 0;
+
 pub fn example () -> i32 {
     // 1. Variables and Mutability
     // Define a variable
