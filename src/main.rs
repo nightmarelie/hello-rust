@@ -7,8 +7,12 @@
 // mod hash_set;
 // mod structure;
 // mod guessing_game;
-mod variable;
-mod numbers;
+// mod variable;
+// mod numbers;
+// mod tuple;
+mod array;
+mod function;
+mod control_flow;
 
 fn main() {
     // // Bool example
@@ -44,7 +48,16 @@ fn main() {
     // Guessing game
     // guessing_game::run();
 
-    // Variable example
-    let result = variable::example();
-    println!("The result of variable example is: {}", result);
+    // // Variable example
+    // let result = variable::example();
+    // println!("The result of variable example is: {}", result);
+
+    // // Tuple example
+    // let result = tuple::example((1, 2));
+    // println!("The result of tuple example is: {}", result);
+
+    // Array example
+    let numbers = [1, 2, 3, 4, 5];
+    let result = array::example(numbers);
+    println!("The result of array example is: {}", result);
 }
