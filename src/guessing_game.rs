@@ -16,7 +16,12 @@ pub fn run() {
 
         io::stdin().read_line(&mut guess).expect("Failed to read line");
 
-        let guess: i32 = guess.trim().parse().expect("Can't parse the guess to a number!");
+        // Here we are using shadowing to convert the type of guess from String to i32.
+        // Also, we are using the match expression to handle the Result type returned from the parse method.
+        let guess: i32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You guessed: {}", guess);
 
