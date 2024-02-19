@@ -17,12 +17,23 @@ impl Player {
     }
 }
 
+// Tuple struct
+struct Color(i32, i32, i32);
+
 #[derive(Debug)]
 pub struct Game {
     pub players: Vec<Player>,
 }
 
 pub fn example () -> Game {
+    let black = Color(0, 0, 0);
+    println!("Black: {}, {}, {}", black.0, black.1, black.2);
+
+    // 1. Structure
+    // 1.1 Define a structure
+    // 1.2 Create an instance of a structure
+    // 1.3 Access the properties of a structure
+    // 1.4 Define methods for a structure
     let player1 = Player::new("Oleksii");
     let player2 = Player::new("Anna");
 

@@ -11,8 +11,8 @@
 // mod numbers;
 // mod tuple;
 mod array;
-mod function;
-mod control_flow;
+// mod function;
+// mod control_flow;
 
 fn main() {
     // // Bool example

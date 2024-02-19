@@ -5,11 +5,14 @@
 pub fn example(numbers: [i32; 5]) -> i32 {
     let mut sum = 0;
 
-    // 1.3 Declare array with default value and langth
+    // 1.3 Declare array with default value and length
     // let a = [3; 5];
 
     // 1.4 Accessing array elements
     // let first = a[0];
+
+    // 1.5 Unlike arrays the length of a slice is determined at runtime
+    // let slice = &a[1..3];
 
     for number in numbers.iter() {
         sum += number;
@@ -25,6 +28,6 @@ mod tests {
 
     #[test]
     fn test_example() {
-        assert_eq!(example(), 15);
+        assert_eq!(example([1, 2, 3, 4, 5]), 15);
     }
 }
