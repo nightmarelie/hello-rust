@@ -7,13 +7,14 @@
 // mod hash_set;
 // mod structure;
 // mod guessing_game;
-mod variable;
+// mod variable;
 // mod numbers;
 // mod tuple;
 // mod array;
 // mod function;
 // mod control_flow;
 // mod enumeration;
+mod string;
 
 fn main() {
     // // Bool example
@@ -50,9 +51,9 @@ fn main() {
     // guessing_game::run();
 
     // // Variable example
-    let result = variable::example();
-    println!("The result of variable example is: {}", result);
-    println!("The result of variable example2 is: {}", variable::HELLO_WORLD);
+    // let result = variable::example();
+    // println!("The result of variable example is: {}", result);
+    // println!("The result of variable example2 is: {}", variable::HELLO_WORLD);
 
     // // Tuple example
     // let result = tuple::example((1, 2));
@@ -65,4 +66,7 @@ fn main() {
 
     // Enum example
     // enumeration::example(enumeration::Command::Quit);
+
+    // String example
+    string::example();
 }

@@ -1,5 +1,5 @@
 // Read variable file to get more information about variables in Rust
-pub fn example () {
+pub fn example() {
     // write examples for this type integers, floating-point numbers
     // 1. Integers
     // 1.1 Rust has a number of integer types of different sizes
