@@ -32,7 +32,7 @@ pub fn example () {
     // 2.1 example
     let s = String::from("hello"); // s comes into scope
     takes_ownership(s); // s's value moves into the function and so is no longer valid here
-    println!("{}", s); // s is not valid here
+    // println!("{}", s); // s is not valid here
 
     // 2.2 example
     // gives_ownership will move its return value into s1
@@ -48,8 +48,12 @@ pub fn example () {
     // 3. Return Values and Scope
     // 3.1 example
     let s = String::from("hello");
-    let (s, len) = calculate_length(s);
-    println!("The length of '{}' is {}.", s, len);
+    let len = calculate_length(&s); // s is borrowed, so it's still valid
+    println!("The length of '{}' is {}.", s, len); // s is still valid
+
+    // 3.2 example
+    let mut s = String::from("hello");
+    change(&mut s); // s is borrowed, so it's still valid
 }
 
 fn takes_ownership(some_string: String) { // some_string comes into scope
@@ -65,7 +69,11 @@ fn takes_and_gives_back(a_string: String) -> String { // a_string comes into sco
     a_string // a_string is returned and moves out to the calling function
 } // Here, a_string goes out of scope and `drop` is called. The backing memory is freed.
 
-fn calculate_length(s: String) -> (String, usize) { // s comes into scope
+fn calculate_length(s: &String) -> usize { // s comes into scope and is borrowed. It's immutable by default
     let length = s.len(); // length is the length of the string
-    (s, length) // s is returned and moves out to the calling function
+    length // length is returned and moves out to the calling function
+} // Here, s goes out of scope and `drop` is called. The backing memory is freed.
+
+fn change(s: &mut String)  { // s comes into scope and is borrowed. It's mutable
+    s.push_str(", world"); // s is changed
 } // Here, s goes out of scope and `drop` is called. The backing memory is freed.
