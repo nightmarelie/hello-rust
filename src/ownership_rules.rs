@@ -47,6 +47,9 @@ pub fn example () {
 
     // 3. Return Values and Scope
     // 3.1 example
+    let s = String::from("hello");
+    let (s, len) = calculate_length(s);
+    println!("The length of '{}' is {}.", s, len);
 }
 
 fn takes_ownership(some_string: String) { // some_string comes into scope
@@ -61,3 +64,8 @@ fn gives_ownership() -> String { // gives_ownership will move its return value i
 fn takes_and_gives_back(a_string: String) -> String { // a_string comes into scope
     a_string // a_string is returned and moves out to the calling function
 } // Here, a_string goes out of scope and `drop` is called. The backing memory is freed.
+
+fn calculate_length(s: String) -> (String, usize) { // s comes into scope
+    let length = s.len(); // length is the length of the string
+    (s, length) // s is returned and moves out to the calling function
+} // Here, s goes out of scope and `drop` is called. The backing memory is freed.
