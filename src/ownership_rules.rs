@@ -46,14 +46,46 @@ pub fn example () {
     // println!("{}", s2); // s2 is not valid
 
     // 3. Return Values and Scope
-    // 3.1 example
+
+    // 4. References and Borrowing
+    // 4.1 example
     let s = String::from("hello");
     let len = calculate_length(&s); // s is borrowed, so it's still valid
     println!("The length of '{}' is {}.", s, len); // s is still valid
 
-    // 3.2 example
+    // 4.2 example
     let mut s = String::from("hello");
     change(&mut s); // s is borrowed, so it's still valid
+
+    // 4.3 example
+    let mut s = String::from("hello");
+    let r1 = &mut s;
+    // let r2 = &mut s; // cannot borrow `s` as mutable more than once at a time
+
+    // 4.4 example
+    let mut s = String::from("hello");
+    {
+        let r1 = &mut s;
+    } // r1 goes out of scope here, so we can make a new reference with no problems
+
+    // 4.5 example
+    let mut s = String::from("hello");
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    // let r3 = &mut s; // cannot borrow `s` as mutable because it's borrowed as immutable
+
+    // 4,6 example. Dangling References
+    // let reference_to_nothing = dangle(); // error: `s` does not live long enough
+
+    // 5. The Slice Type
+    // 5.1 example
+    let s = String::from("hello world");
+    let hello = &s[0..5]; // hello is a reference to the first 5 characters of s
+    let world = &s[6..11]; // world is a reference to the last 5 characters of s
+    let slice = &s[..]; // slice is a reference to the entire string
+    println!("The first word is: {}", hello);
+    println!("The second word is: {}", world);
+    println!("The entire string is: {}", slice);
 }
 
 fn takes_ownership(some_string: String) { // some_string comes into scope
@@ -77,3 +109,9 @@ fn calculate_length(s: &String) -> usize { // s comes into scope and is borrowed
 fn change(s: &mut String)  { // s comes into scope and is borrowed. It's mutable
     s.push_str(", world"); // s is changed
 } // Here, s goes out of scope and `drop` is called. The backing memory is freed.
+
+// fn dangle() -> &String { // dangle returns a reference to a String
+//     let s = String::from("hello"); // s comes into scope
+//
+//     &s // we return a reference to the String, s
+// } // Here, s goes out of scope and `drop` is called. The backing memory is freed. Its memory goes away
