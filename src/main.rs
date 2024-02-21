@@ -15,6 +15,7 @@
 // mod control_flow;
 // mod enumeration;
 mod string;
+mod ownership_rules;
 
 fn main() {
     // // Bool example
