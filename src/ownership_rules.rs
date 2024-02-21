@@ -80,8 +80,8 @@ pub fn example () {
     // 5. The Slice Type
     // 5.1 example
     let s = String::from("hello world");
-    let hello = &s[0..5]; // hello is a reference to the first 5 characters of s
-    let world = &s[6..11]; // world is a reference to the last 5 characters of s
+    let hello = &s[..5]; // hello is a reference to the first 5 characters of s
+    let world = &s[6..]; // world is a reference to the last 5 characters of s
     let slice = &s[..]; // slice is a reference to the entire string
     println!("The first word is: {}", hello);
     println!("The second word is: {}", world);
