@@ -14,7 +14,7 @@
 // mod function;
 // mod control_flow;
 // mod enumeration;
-mod string;
+// mod string;
 mod ownership_rules;
 
 fn main() {
@@ -69,5 +69,5 @@ fn main() {
     // enumeration::example(enumeration::Command::Quit);
 
     // String example
-    string::example();
+    ownership_rules::example();
 }

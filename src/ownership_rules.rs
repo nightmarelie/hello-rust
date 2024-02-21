@@ -12,5 +12,18 @@ pub fn example () {
         println!("{}", s);
     } // this scope is now over, and s is no longer valid
 
+    // example with variables
+    let x = 5;
+    let y = x; // x is copied to y, both are valid
+
+    let s1 = String::from("hello");
+    let s2 = s1; // s1 is moved to s2, s1 is no longer valid. It's called a move, not a copy. It's done to avoid double free error
+
+    println!("{}", s2); // s2 is valid
+    // println!("{}", s1); // s1 is not valid
+
+    let s1 = s2.clone(); // s2 is cloned to s1, both are valid
+    println!("{}", s1); // s1 is valid
+
     // 2. Ownership and Functions
 }
