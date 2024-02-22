@@ -14,9 +14,10 @@
 // mod function;
 // mod control_flow;
 // mod enumeration;
-// mod string;
+mod string;
 // mod ownership_rules;
-mod first_word;
+// mod first_word;
+
 
 fn main() {
     // // Bool example
@@ -70,5 +71,5 @@ fn main() {
     // enumeration::example(enumeration::Command::Quit);
 
     // String example
-    first_word::example();
+    string::example();
 }

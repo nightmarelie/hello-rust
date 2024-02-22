@@ -7,6 +7,7 @@ pub fn example () {
     // 1.4 Rust strings are UTF-8 encoded
     // 1.5 Rust strings are immutable
     // 1.6 Rust strings are not null-terminated
+    // 1.7 str and String. str stored in the stack, binary, heap. String stored in the heap
     let mut s = String::new();
     // 1.1.2 String literals | String slice
     let data = "initial contents";
@@ -42,5 +43,32 @@ pub fn example () {
     let s = &hello[0..4];
     println!("The result of str example is: {}", s);
 
+    // Example
+    let my_string: &str = "hello world"; // string slice
 
+    let my_string = String::from("hello world");
+    let my_string = "hello world".to_string();
+    let my_string = "hello world".to_owned();
+    let my_string = &my_string[..];
+
+    println!("The result of str example is: {}", my_string);
+
+    // 1.11 String manipulation
+    let mut my_string = String::from("hello world");
+    my_string.push_str("!");
+    println!("The result of str example is: {}", my_string);
+    my_string.replace_range(.., "Tada!");
+    println!("The result of str example is: {}", my_string);
+    // concatenation
+    let my_string = my_string + "!";
+    println!("The result of str example is: {}", my_string);
+
+    let my_string = ["hello", ", ", "world"].concat();
+    println!("The result of str example is: {}", my_string);
+
+    let my_string = format!("{} {}{}", "hello", "world", "!");
+    println!("The result of str example is: {}", my_string);
+
+    let my_string = concat!("hello", ", ", "world");
+    println!("The result of str example is: {}", my_string);
 }
