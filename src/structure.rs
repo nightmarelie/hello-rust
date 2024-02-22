@@ -9,7 +9,7 @@ impl Player {
         return Player {
             name: name.to_string(),
             score: 0,
-        }
+        };
     }
 
     pub fn play(&mut self, points: i32) {
@@ -33,7 +33,7 @@ struct User {
     active: bool,
 }
 
-pub fn example () -> Game {
+pub fn example() -> Game {
     let black = Color(0, 0, 0);
     println!("Black: {}, {}, {}", black.0, black.1, black.2);
 
@@ -74,17 +74,24 @@ pub fn example () -> Game {
     };
     println!("The result of structure example is: {:?}", user2);
 
+    // ----------------
+    let rect = (30, 50);
+    println!("The area of the rectangle is {} square pixels.", area(rect));
+
     return game;
 }
 
-fn build_user (username: &str, email: &str) -> User {
+fn build_user(username: &str, email: &str) -> User {
     User {
         email: email.to_owned(),
         username: username.to_owned(),
         active: true,
         sign_in_count: 1,
     }
+}
 
+fn area(dimensions: (u32, u32)) -> u32 {
+    dimensions.0 * dimensions.1
 }
 
 // write test for example
