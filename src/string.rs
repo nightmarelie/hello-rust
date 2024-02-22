@@ -85,4 +85,30 @@ pub fn example () {
     for c in my_string.chars() {
         println!("{}", c);
     }
+
+    for c in my_string.bytes() {
+        println!("{}", c);
+    }
+
+    // 1.16 Length
+    // 1.17 Length of a string
+    let my_string = String::from("hello world");
+    let length = my_string.len();
+    println!("The result of str example is: {}", length);
+
+    // 1.18 Capacity
+    // 1.19 Capacity of a string
+    let my_string = String::from("hello world");
+    let capacity = my_string.capacity();
+    println!("The result of str example is: {}", capacity);
+
+    // 1.20 Function
+    // 1.21 Function that returns a string
+    let my_string = String::from("hello world");
+    let result = takes_and_gives_back(&my_string);
+    println!("The result of str example is: {}", my_string);
+}
+
+fn takes_and_gives_back(a_string: &str) -> &str {
+    a_string
 }
