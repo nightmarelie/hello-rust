@@ -25,6 +25,7 @@ pub struct Game {
     pub players: Vec<Player>,
 }
 
+#[derive(Debug)]
 struct User {
     username: String,
     email: String,
@@ -52,7 +53,7 @@ pub fn example () -> Game {
         player.play(10);
     }
 
-    let user1 = User {
+    let mut user1 = User {
         email: String::from("test@test.com"),
         username: String::from("test"),
         active: true,
@@ -60,9 +61,30 @@ pub fn example () -> Game {
     };
 
     let name = user1.username;
+    user1.username = String::from("test2");
     println!("The result of structure example is: {}", name);
 
+    let user1 = build_user(&name, "test");
+    println!("The result of structure example is: {:?}", user1);
+
+    let user2 = User {
+        email: String::from("test@test.com"),
+        username: String::from("test"),
+        ..user1
+    };
+    println!("The result of structure example is: {:?}", user2);
+
     return game;
+}
+
+fn build_user (username: &str, email: &str) -> User {
+    User {
+        email: email.to_owned(),
+        username: username.to_owned(),
+        active: true,
+        sign_in_count: 1,
+    }
+
 }
 
 // write test for example
