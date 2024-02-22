@@ -71,4 +71,18 @@ pub fn example () {
 
     let my_string = concat!("hello", ", ", "world");
     println!("The result of str example is: {}", my_string);
+
+    // 1.12 Indexing
+    // 1.13 Indexing a string
+    let my_string = String::from("🐲🐲🐲🐲🐲");
+    // let my_string = my_string[0]; // error: the trait `Index<_>` is not implemented for `String`
+    let my_string = &my_string[0..4];
+    println!("The result of str example is: {}", my_string);
+
+    // 1.14 Iterating
+    // 1.15 Iterating over a string
+    let my_string = String::from("hello world");
+    for c in my_string.chars() {
+        println!("{}", c);
+    }
 }
