@@ -33,6 +33,12 @@ struct User {
     active: bool,
 }
 
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
 pub fn example() -> Game {
     let black = Color(0, 0, 0);
     println!("Black: {}, {}, {}", black.0, black.1, black.2);
@@ -75,8 +81,13 @@ pub fn example() -> Game {
     println!("The result of structure example is: {:?}", user2);
 
     // ----------------
-    let rect = (30, 50);
-    println!("The area of the rectangle is {} square pixels.", area(rect));
+    let rect = Rectangle {
+        width: 30,
+        height: 50,
+    };
+    println!("The result of structure example is: {:#?}", rect);
+
+    println!("The area of the rectangle is {} square pixels.", area(&rect));
 
     return game;
 }
@@ -90,8 +101,8 @@ fn build_user(username: &str, email: &str) -> User {
     }
 }
 
-fn area(dimensions: (u32, u32)) -> u32 {
-    dimensions.0 * dimensions.1
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
 
 // write test for example
