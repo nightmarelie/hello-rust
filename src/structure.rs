@@ -49,6 +49,16 @@ impl Rectangle {
     }
 }
 
+impl Rectangle {
+    fn square(size: u32) -> Rectangle {
+        Rectangle {
+            width: size,
+            height: size,
+        }
+    }
+
+}
+
 pub fn example() -> Game {
     let black = Color(0, 0, 0);
     println!("Black: {}, {}, {}", black.0, black.1, black.2);
@@ -101,7 +111,10 @@ pub fn example() -> Game {
         height: 40,
     };
 
+    let rect3 = Rectangle::square(10);
+
     println!("The result of structure example is: {:#?}", rect);
+    println!("The result of rect3 example is: {:#?}", rect3);
     println!("The area of the rectangle is {} square pixels.", rect.area());
     println!("Can rect hold rect2? {}", rect.can_hold(&rect2));
     println!("Can rect hold rect? {}", rect2.can_hold(&rect));
