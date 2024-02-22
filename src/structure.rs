@@ -25,6 +25,13 @@ pub struct Game {
     pub players: Vec<Player>,
 }
 
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
 pub fn example () -> Game {
     let black = Color(0, 0, 0);
     println!("Black: {}, {}, {}", black.0, black.1, black.2);
@@ -44,6 +51,16 @@ pub fn example () -> Game {
     for player in &mut game.players {
         player.play(10);
     }
+
+    let user1 = User {
+        email: String::from("test@test.com"),
+        username: String::from("test"),
+        active: true,
+        sign_in_count: 1,
+    };
+
+    let name = user1.username;
+    println!("The result of structure example is: {}", name);
 
     return game;
 }

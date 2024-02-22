@@ -5,7 +5,7 @@
 // mod vec;
 //
 // mod hash_set;
-// mod structure;
+mod structure;
 // mod guessing_game;
 // mod variable;
 // mod numbers;
@@ -14,7 +14,7 @@
 // mod function;
 // mod control_flow;
 // mod enumeration;
-mod string;
+// mod string;
 // mod ownership_rules;
 // mod first_word;
 
@@ -71,5 +71,5 @@ fn main() {
     // enumeration::example(enumeration::Command::Quit);
 
     // String example
-    string::example();
+    structure::example();
 }
