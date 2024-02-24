@@ -1,11 +1,6 @@
 enum IpAddrKind {
-    V4,
-    V6,
-}
-
-struct IpAddr {
-    kind: IpAddrKind,
-    address: String,
+    V4(String),
+    V6(String),
 }
 
 pub enum Command {
@@ -16,13 +11,8 @@ pub enum Command {
 }
 
 pub fn example(command: Command) {
-    let four = IpAddrKind::V4;
-    let six = IpAddrKind::V6;
-
-    let localhost = IpAddr {
-        kind: six,
-        address: "127.0.0.1".to_string(),
-    };
+    let four = IpAddrKind::V4(String::from("127.0.0.1"));
+    let six = IpAddrKind::V6(String::from("127.0.0.1"));
 
     route(four);
 
@@ -36,8 +26,8 @@ pub fn example(command: Command) {
 
 fn route(ip_type: IpAddrKind) {
     match ip_type {
-        IpAddrKind::V4 => println!("V4"),
-        IpAddrKind::V6 => println!("V6"),
+        IpAddrKind::V4(ip) => println!("Routing to IPv4 address: {}", ip),
+        IpAddrKind::V6(ip) => println!("Routing to IPv6 address: {}", ip),
     }
 }
 
