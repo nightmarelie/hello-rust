@@ -3,6 +3,11 @@ enum IpAddrKind {
     V6,
 }
 
+struct IpAddr {
+    kind: IpAddrKind,
+    address: String,
+}
+
 pub enum Command {
     Quit,
     Move { x: i32, y: i32 },
@@ -13,6 +18,11 @@ pub enum Command {
 pub fn example(command: Command) {
     let four = IpAddrKind::V4;
     let six = IpAddrKind::V6;
+
+    let localhost = IpAddr {
+        kind: six,
+        address: "127.0.0.1".to_string(),
+    };
 
     route(four);
 
