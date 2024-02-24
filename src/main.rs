@@ -1,3 +1,5 @@
+use crate::enumeration::Command;
+
 // use std::collections::HashMap;
 // use std::collections::HashSet;
 // mod boolean;
@@ -5,7 +7,7 @@
 // mod vec;
 //
 // mod hash_set;
-mod structure;
+// mod structure;
 // mod guessing_game;
 // mod variable;
 // mod numbers;
@@ -13,7 +15,7 @@ mod structure;
 // mod array;
 // mod function;
 // mod control_flow;
-// mod enumeration;
+mod enumeration;
 // mod string;
 // mod ownership_rules;
 // mod first_word;
@@ -71,5 +73,5 @@ fn main() {
     // enumeration::example(enumeration::Command::Quit);
 
     // String example
-    structure::example();
+    enumeration::example(Command::Quit);
 }
