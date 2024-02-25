@@ -3,13 +3,6 @@ enum IpAddrKind {
     V6(String),
 }
 
-// Option enum as defined in the standard library. This is a simplified version.
-// The purpose of this enum is to show how to define an enum with a generic type.
-enum Option<T> {
-    Some(T),
-    None,
-}
-
 pub enum Command {
     Quit,
     Move { x: i32, y: i32 },
@@ -18,10 +11,15 @@ pub enum Command {
 }
 
 pub fn example(command: Command) {
-    let four = IpAddrKind::V4(String::from("127.0.0.1"));
-    let six = IpAddrKind::V6(String::from("127.0.0.1"));
+    // let four = IpAddrKind::V4(String::from("127.0.0.1"));
+    // let six = IpAddrKind::V6(String::from("127.0.0.1"));
 
-    route(four);
+    // route(four);
+
+    // example of option
+    let some_number = Some(5);
+    let some_string = Some("a string");
+    let absent_number: Option<i32> = None; // the None variant is a specific type of Option that is only allowed to hold a value of i32
 
     match command {
         Command::Quit => println!("Quitting"),
