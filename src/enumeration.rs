@@ -3,6 +3,13 @@ enum IpAddrKind {
     V6(String),
 }
 
+// Option enum as defined in the standard library. This is a simplified version.
+// The purpose of this enum is to show how to define an enum with a generic type.
+enum Option<T> {
+    Some(T),
+    None,
+}
+
 pub enum Command {
     Quit,
     Move { x: i32, y: i32 },
