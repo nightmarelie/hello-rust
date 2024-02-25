@@ -17,9 +17,10 @@ pub fn example(command: Command) {
     // route(four);
 
     // example of option
-    let some_number = Some(5);
-    let some_string = Some("a string");
-    let absent_number: Option<i32> = None; // the None variant is a specific type of Option that is only allowed to hold a value of i32
+    let x = 15;
+    let y: Option<i8> = Some(5);
+
+    let sum =  x + y; // this will not work because y is an Option
 
     match command {
         Command::Quit => println!("Quitting"),
