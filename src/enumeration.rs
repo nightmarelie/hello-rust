@@ -18,9 +18,10 @@ pub fn example(command: Command) {
 
     // example of option
     let x = 15;
-    let y: Option<i8> = Some(5);
+    let y: Option<i8> = Some(5); // If it is None, it will use default value 0
 
-    let sum =  x + y; // this will not work because y is an Option
+    let sum =  x + y.unwrap_or(0); // this will not work because y is an Option
+    println!("The result of sum is: {}", sum);
 
     match command {
         Command::Quit => println!("Quitting"),
