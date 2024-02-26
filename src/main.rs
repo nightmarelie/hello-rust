@@ -73,5 +73,5 @@ fn main() {
     // enumeration::example(enumeration::Command::Quit);
 
     // String example
-    enumeration::example(Command::Quit);
+    // enumeration::example(Command::Quit);
 }

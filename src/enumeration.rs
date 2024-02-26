@@ -86,9 +86,16 @@ fn value_in_cents(coin: Coin) -> u8 {
     }
 }
 
-fn plus_one(x: Option<i32>) -> Option<i32> {
-    match x {
-        None => None,
+fn plus_one(some_value: Option<i32>) -> Option<i32> {
+    match some_value {
+        Some(3) => println!("three"),
         Some(i) => Some(i + 1),
+        _ => None,
+    }
+
+    if let Some(i) = some_value {
+        Some(i + 1)
+    } else {
+        None
     }
 }
