@@ -17,11 +17,19 @@ pub fn example(command: Command) {
     // route(four);
 
     // example of option
-    let x = 15;
-    let y: Option<i8> = Some(5); // If it is None, it will use default value 0
+    // let x = 15;
+    // let y: Option<i8> = Some(5); // If it is None, it will use default value 0
+    //
+    // let sum =  x + y.unwrap_or(0); // this will not work because y is an Option
+    // println!("The result of sum is: {}", sum);
 
-    let sum =  x + y.unwrap_or(0); // this will not work because y is an Option
-    println!("The result of sum is: {}", sum);
+    let five = Some(5);
+    let six = plus_one(five);
+    let none = plus_one(None);
+
+    println!("The result of six is: {:?}", six);
+    println!("The result of none is: {:?}", none);
+
 
     match command {
         Command::Quit => println!("Quitting"),
@@ -75,5 +83,12 @@ fn value_in_cents(coin: Coin) -> u8 {
             println!("State quarter from {:?}!", state);
             25
         },
+    }
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
     }
 }
