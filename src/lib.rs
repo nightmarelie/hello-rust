@@ -1,5 +1,5 @@
 mod front_of_house {
-    mod hosting {
+    pub mod hosting {
         pub fn add_to_waitlist() {}
 
         fn seat_at_table() {}
@@ -18,5 +18,18 @@ mod front_of_house {
 
         fn take_payment() {}
     }
+}
+
+pub fn eat_at_restaurant() {
+    // Absolute path
+    crate::front_of_house::hosting::add_to_waitlist();
+
+    // Relative path
+    front_of_house::hosting::add_to_waitlist();
+
+    // use keyword
+    use crate::front_of_house::hosting;
+
+    hosting::add_to_waitlist();
 }
 
