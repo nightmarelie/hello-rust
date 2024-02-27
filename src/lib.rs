@@ -1,5 +1,5 @@
 use rand::{Rng, CryptoRng};
-use std::io::{self, Write};
+use std::io::*;
 
 mod front_of_house {
     pub mod hosting {
