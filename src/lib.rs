@@ -28,7 +28,7 @@ pub fn eat_at_restaurant() {
     front_of_house::hosting::add_to_waitlist();
 
     // use keyword
-    use crate::front_of_house::hosting;
+    use self::front_of_house::hosting;
 
     hosting::add_to_waitlist();
 }
