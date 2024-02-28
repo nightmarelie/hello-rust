@@ -1,8 +1,13 @@
 pub fn examples () {
     let a = [1, 2, 3, 4, 5];
 
-    let vec: Vec<i32> = Vec::new();
+    let mut vec: Vec<i32> = Vec::new();
 
+    vec.push(1);
+    vec.push(2);
+    vec.push(3);
+    vec.push(4);
+    vec.push(5);
 
 }
 
