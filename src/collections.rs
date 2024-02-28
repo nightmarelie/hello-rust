@@ -22,6 +22,10 @@ pub fn examples() {
     }
 
     // Iterating over elements
+    for i in &mut vec {
+        *i += 50;
+    }
+
     for i in &vec {
         println!("{}", i);
     }
