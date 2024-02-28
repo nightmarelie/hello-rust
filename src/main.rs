@@ -1,3 +1,5 @@
-fn main() {
+mod collections;
 
+fn main() {
+    collections::examples();
 }
