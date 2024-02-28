@@ -9,16 +9,21 @@ pub fn examples() {
     vec.push(4);
     vec.push(5);
 
-    let vec2 = Vec::from([1, 2, 3, 4, 5]); // type inferred from array
-    let vec3 = vec![1, 2, 3, 4, 5]; // type inferred from values
+    // let vec2 = Vec::from([1, 2, 3, 4, 5]); // type inferred from array
+    // let vec3 = vec![1, 2, 3, 4, 5]; // type inferred from values
 
     // Accessing elements
-    let third: &i32 = &vec[2];
+    // let third: &i32 = &vec[2];
     let third: Option<&i32> = vec.get(2);
 
     match third {
         Some(value) => println!("The third element is {}", value),
         None => println!("There is no third element"),
+    }
+
+    // Iterating over elements
+    for i in &vec {
+        println!("{}", i);
     }
 }
 
