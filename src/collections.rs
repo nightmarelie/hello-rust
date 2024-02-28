@@ -29,6 +29,18 @@ pub fn examples() {
     for i in &vec {
         println!("{}", i);
     }
+
+    // String are UTF-8 encoded
+    let s = String::new();
+    let data = "initial contents";
+    let s = data.to_string();
+    let s = String::from("hello");
+
+    // Updating a string
+    let mut s = String::from("foo");
+    s.push_str("bar");
+    s.push('l');
+
 }
 
 
