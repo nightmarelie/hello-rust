@@ -11,7 +11,7 @@ pub fn examples() {
         Err(E),
     }
 
-    let f = File::open("hello.txt");
+    let f = File::open("hello.txt").unwrap(); // unwrap() is a shortcut method for code below
 
     let f = match f {
         Ok(file) => file,
