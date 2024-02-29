@@ -1,9 +1,10 @@
 use std::fs::File;
+use std::io::ErrorKind;
 
 pub fn examples() {
     // Error handling
     // In this line of code, the program will panic and exit
-    panic!("This is an example of panic"); // panic! is a macro
+    // panic!("This is an example of panic"); // panic! is a macro
 
     enum Result<T, E> {
         Ok(T),
@@ -15,7 +16,11 @@ pub fn examples() {
     let f = match f {
         Ok(file) => file,
         Err(error) => {
-            panic!("Problem opening the file: {:?}", error)
+            panic!("Problem opening the file: {:?}", match error.kind() {
+                ErrorKind::NotFound => "File not found",
+                ErrorKind::PermissionDenied => "Permission denied",
+                _ => "Some other error",
+            })
         },
     };
 }
