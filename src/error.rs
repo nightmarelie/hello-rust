@@ -1,5 +1,8 @@
 use std::fs::File;
 use std::io::ErrorKind;
+use std::io;
+use std::io::Read;
+use std::error::Error;
 
 pub fn examples() {
     // Error handling
@@ -11,7 +14,7 @@ pub fn examples() {
         Err(E),
     }
 
-    let f = File::open("hello.txt").unwrap(); // unwrap() is a shortcut method for code below
+    let f = File::open("hello.txt").expect("Problem opening the file!"); // unwrap() is a shortcut method for code below
 
     let f = match f {
         Ok(file) => file,
@@ -42,6 +45,11 @@ pub fn examples() {
             panic!("There was a problem opening the file: {:?}", error);
         }
     });
+
+    // error propagation
+
+
+
 }
 
 #[cfg(test)]
@@ -51,5 +59,21 @@ mod tests {
     #[test]
     fn test_example() {
         examples();
+    }
+}
+
+fn read_username_from_file() -> Result<String, io::Error> {
+    let f = File::open("hello.txt");
+
+    let mut f = match f {
+        Ok(file) => file,
+        Err(e) => return Err(e),
+    };
+
+    let mut s = String::new();
+
+    match f.read_to_string(&mut s) {
+        Ok(_) => Ok(s),
+        Err(e) => Err(e),
     }
 }
