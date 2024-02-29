@@ -63,12 +63,12 @@ mod tests {
 }
 
 fn read_username_from_file() -> Result<String, io::Error> {
-    let f = File::open("hello.txt");
+    let f = File::open("hello.txt")?; // ? operator can only be used in functions that have a return type of Result
 
-    let mut f = match f {
-        Ok(file) => file,
-        Err(e) => return Err(e),
-    };
+    // let mut f = match f {
+    //     Ok(file) => file,
+    //     Err(e) => return Err(e),
+    // };
 
     let mut s = String::new();
 
