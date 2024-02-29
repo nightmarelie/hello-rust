@@ -15,6 +15,11 @@ pub fn examples() {
 
     let f = match f {
         Ok(file) => file,
+        Err(error) => panic!("Problem opening the file: {:?}", error),
+    };
+
+    let f = match f {
+        Ok(file) => file,
         Err(error) => {
             panic!("Problem opening the file: {:?}", match error.kind() {
                 ErrorKind::NotFound => match File::create("hello.txt") {
