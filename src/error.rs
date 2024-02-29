@@ -1,4 +1,4 @@
-use std::fs::File;
+use std::fs::{self, File};
 use std::io::ErrorKind;
 use std::io;
 use std::io::Read;
@@ -63,8 +63,5 @@ mod tests {
 }
 
 fn read_username_from_file() -> Result<String, io::Error> {
-    let mut s = String::new();
-
-    File::open("hello.txt")?.read_to_string(&mut s)?; // ? operator can only be used in functions that have a return type of Result
-    Ok(s)
+    fs::read_to_string("hello.txt")
 }
