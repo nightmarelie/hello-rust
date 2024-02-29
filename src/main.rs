@@ -1,5 +1,5 @@
-mod collections;
+mod error;
 
 fn main() {
-    collections::examples();
+    error::examples();
 }
