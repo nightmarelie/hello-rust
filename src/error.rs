@@ -17,9 +17,13 @@ pub fn examples() {
         Ok(file) => file,
         Err(error) => {
             panic!("Problem opening the file: {:?}", match error.kind() {
-                ErrorKind::NotFound => "File not found",
-                ErrorKind::PermissionDenied => "Permission denied",
-                _ => "Some other error",
+                ErrorKind::NotFound => match File::create("hello.txt") {
+                    Ok(fc) => fc,
+                    Err(e) => panic!("Tried to create file but there was a problem: {:?}", e),
+                },
+                other_error => {
+                    panic!("There was a problem opening the file: {:?}", other_error)
+                }
             })
         },
     };
