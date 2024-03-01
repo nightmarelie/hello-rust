@@ -15,6 +15,15 @@ impl Point<i32, i32> {
     }
 }
 
+impl <T, U>Point<T, U> {
+    fn mixup<V, W>(self, other: Point<V, W>) -> Point<T, W> {
+        Point {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
 impl Point<f32, f32> {
     fn distance_from_origin(&self) -> f32 {
         (self.x.powi(2) + self.y.powi(2)).sqrt()
@@ -35,10 +44,13 @@ pub fn run() {
     let p = Point { x: 5, y: 10 };
     let a = Point { x: 5.1, y: 10.1 };
     let n = Point { x: 1, y: 10.1 };
+    let b = Point { x: 1, y: 'c' };
 
-    println!("p.x = {}, p.y = {}", p.x, p.y());
+    let b = p.mixup(b);
+
     println!("a.x = {}, a.y = {}", a.x(), a.y);
     println!("n.x = {}, n.y = {}", n.x, n.y);
+    println!("b.x = {}, b.y = {}", b.x, b.y);
 }
 
 #[cfg(test)]
