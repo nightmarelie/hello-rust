@@ -3,6 +3,16 @@ struct Point<T, U> {
     y: U,
 }
 
+enum Option<T> {
+    Some(T),
+    None,
+}
+
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+
 pub fn run() {
     let p = Point { x: 5, y: 10 };
     let a = Point { x: 5.1, y: 10.1 };
