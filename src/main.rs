@@ -1,5 +1,8 @@
 mod largest;
 
 fn main() {
-    largest::run();
+    let number_list = vec![34, 50, 25, 100, 65];
+    let result = largest::run(number_list);
+
+    println!("The largest number is {}", result);
 }
