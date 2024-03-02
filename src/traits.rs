@@ -25,10 +25,12 @@ impl Summary for Tweet {
 }
 
 pub trait Summary {
-    fn summarize(&self) -> String;
+    fn summarize(&self) -> String {
+        String::from("(Read more...)")
+    }
 }
 
-pub fn example () {
+pub fn example() {
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
         content: String::from("of course, as you probably already know, people"),
