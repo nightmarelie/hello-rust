@@ -40,6 +40,10 @@ pub trait Summary {
     }
 }
 
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}
+
 pub fn example() {
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
@@ -54,6 +58,9 @@ pub fn example() {
         author: String::from("Iceburgh"),
         content: String::from("The Pittsburgh Penguins once again are the best hockey team in the NHL."),
     };
+
+    notify(&tweet);
+    notify(&article);
 
     println!("1 new tweet: {}", tweet.summarize());
     println!("1 new tweet: {}", article.summarize());
