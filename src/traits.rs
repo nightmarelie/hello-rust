@@ -18,11 +18,7 @@ pub struct Tweet {
     pub retweet: bool,
 }
 
-impl Summary for Tweet {
-    fn summarize(&self) -> String {
-        format!("{}: {}", self.username, self.content)
-    }
-}
+impl Summary for Tweet {}
 
 pub trait Summary {
     fn summarize(&self) -> String {
