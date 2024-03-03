@@ -12,11 +12,22 @@ pub fn example() {
     // println!("r: {}", r);
 
 
-    let string1 = "abcd";
-    let string2 = "xyz";
+    // let string1 = "abcd";
+    // let string2 = "xyz";
+    //
+    // let result = longest(string1, string2);
+    // println!("The longest string is {}", result);
 
-    let result = longest(string1, string2);
-    println!("The longest string is {}", result);
+    // dangling reference
+    let string1 = "abcd";
+    let result;
+
+    {
+        let string2 = "xyz";
+        result = longest(string1, string2);
+    }
+
+    println!("r: {}", result);
 }
 
 // using generic life-time annotation
