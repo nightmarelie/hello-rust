@@ -51,6 +51,12 @@ pub fn example() {
     let word = first_word(&s);
 
     println!("The first word is: {}", word);
+
+    // exa,ple of static life-time
+    // The text of this string is stored directly in the program’s binary, which is always available.
+    // Therefore, the lifetime of all string literals is 'static.
+    let s: &'static str = "I have a";
+    println!("{}", s);
 }
 
 // using generic life-time annotation
@@ -77,4 +83,15 @@ fn first_word(s: &str) -> &str {
         }
     }
     &s[..]
+}
+
+fn longest_with_an_announcement<'a, T>(x: &'a str, y: &'a str, ann: T) -> &'a str
+    where T: std::fmt::Display
+{
+    println!("Announcement! {}", ann);
+    if x.len() > y.len() {
+        x
+    } else {
+        y
+    }
 }
