@@ -1,4 +1,4 @@
-use std::fmt::Debug;
+use std::fmt::{Debug, Display};
 
 #[derive(Debug)]
 pub struct NewsArticle {
@@ -57,6 +57,7 @@ pub fn some_function<T: Summary + Debug>(item: &T) {
     println!("Breaking news! {:?}", item);
 }
 
+// restriction with return value using impl Trait should be used when you want to return a single type, but don’t want to write out a long type signature.
 fn returns_summarizable() -> impl Summary {
     Tweet {
         username: String::from("horse_ebooks"),
@@ -66,10 +67,53 @@ fn returns_summarizable() -> impl Summary {
     }
 }
 
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
+
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {}", self.x);
+        } else {
+            println!("The largest member is y = {}", self.y);
+        }
+    }
+}
+
+// Using Trait Bounds to Conditionally Implement Methods
+// You can also conditionally implement methods on a generic type depending on whether the generic type has a particular trait bound or not.
+// For example, the type Tuples that implements the cmp_display method on Pair<T> if T has the Display and PartialOrd traits:
+// impl<T: Display + PartialOrd> Pair<T> {
+//     fn cmp_display(&self) {
+//         if self.x >= self.y {
+//             println!("The largest member is x = {}", self.x);
+//         } else {
+//             println!("The largest member is y = {}", self.y);
+//         }
+//     }
+// }
+
+
+// Using Trait Objects That Allow for Values of Different Types
+// impl <T: Display> ToString for T {
+//     fn to_string(&self) -> String {
+//         format!("{}", self)
+//     }
+// }
+
+
 // where clause
 pub fn some_function2<T>(item: &T)
-where
-    T: Summary + Debug,
+    where
+        T: Summary + Debug,
 {
     println!("Breaking news! {:?}", item);
 }
