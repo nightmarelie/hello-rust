@@ -53,6 +53,18 @@ pub fn notify(item: &(impl Summary + Debug)) {
 //     println!("Breaking news! {}", item.summarize());
 // }
 
+pub fn some_function<T: Summary + Debug>(item: &T) {
+    println!("Breaking news! {:?}", item);
+}
+
+// where clause
+pub fn some_function2<T>(item: &T)
+where
+    T: Summary + Debug,
+{
+    println!("Breaking news! {:?}", item);
+}
+
 pub fn example() {
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
