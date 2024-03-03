@@ -1,3 +1,8 @@
+// Struct cann't live longer than the reference it holds
+struct ImportantExcerpt<'a> {
+    part: &'a str,
+}
+
 pub fn example() {
     // dangling reference
     // let r;
@@ -19,15 +24,22 @@ pub fn example() {
     // println!("The longest string is {}", result);
 
     // dangling reference
-    let string1 = "abcd";
-    let result;
+    // let string1 = "abcd";
+    // let result;
+    //
+    // {
+    //     let string2 = "xyz";
+    //     result = longest(string1, string2);
+    // }
+    //
+    // println!("r: {}", result);
 
-    {
-        let string2 = "xyz";
-        result = longest(string1, string2);
-    }
+    let novel = String::from("Call me Ishmael. Some years ago...");
+    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
 
-    println!("r: {}", result);
+    //
+    let i = ImportantExcerpt { part: first_sentence };
+
 }
 
 // using generic life-time annotation
