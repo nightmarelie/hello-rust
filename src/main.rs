@@ -1,5 +1,5 @@
-mod traits;
+mod life_time;
 
 fn main() {
-    traits::example();
+    life_time::example();
 }
