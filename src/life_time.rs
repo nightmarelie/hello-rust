@@ -3,6 +3,13 @@ struct ImportantExcerpt<'a> {
     part: &'a str,
 }
 
+impl<'a> ImportantExcerpt<'a> {
+    // method
+    fn level(&'a self) -> &'a str {
+        "test"
+    }
+}
+
 pub fn example() {
     // dangling reference
     // let r;
