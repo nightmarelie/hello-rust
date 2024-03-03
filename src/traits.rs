@@ -1,3 +1,6 @@
+use std::fmt::Debug;
+
+#[derive(Debug)]
 pub struct NewsArticle {
     pub headline: String,
     pub location: String,
@@ -15,6 +18,7 @@ impl Summary for NewsArticle {
     }
 }
 
+#[derive(Debug)]
 pub struct Tweet {
     pub username: String,
     pub content: String,
@@ -40,9 +44,14 @@ pub trait Summary {
     }
 }
 
-pub fn notify(item: &impl Summary) {
+pub fn notify(item: &(impl Summary + Debug)) {
     println!("Breaking news! {}", item.summarize());
 }
+
+// the impl Trait syntax is syntactic sugar for a longer form:
+// pub fn notify<T: Summary>(item: &T) {
+//     println!("Breaking news! {}", item.summarize());
+// }
 
 pub fn example() {
     let tweet = Tweet {
