@@ -34,12 +34,16 @@ pub fn example() {
     //
     // println!("r: {}", result);
 
-    let novel = String::from("Call me Ishmael. Some years ago...");
-    let first_sentence = novel.split('.').next().expect("Could not find a '.'");
-
+    // let novel = String::from("Call me Ishmael. Some years ago...");
+    // let first_sentence = novel.split('.').next().expect("Could not find a '.'");
     //
-    let i = ImportantExcerpt { part: first_sentence };
+    // //
+    // let i = ImportantExcerpt { part: first_sentence };
 
+    let s = String::from("hello world");
+    let word = first_word(&s);
+
+    println!("The first word is: {}", word);
 }
 
 // using generic life-time annotation
@@ -52,4 +56,18 @@ fn longest <'a> (x: &'a str, y: &'a str) -> &'a str {
     } else {
         y
     }
+}
+
+// illusion rules of life-time
+// 1. Each parameter that is a reference gets its own lifetime parameter.
+// 2. If there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters.
+// 3. If there are multiple input lifetime parameters, but one of them is &self or &mut self because this is a method, the lifetime of self is assigned to all output lifetime parameters.
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
+        }
+    }
+    &s[..]
 }
