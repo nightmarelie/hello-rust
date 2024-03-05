@@ -23,6 +23,6 @@ mod tests {
 
     #[test]
     fn failing_test() {
-        assert_eq!(2 + 2, 5);
+        panic!("Make this test fail");
     }
 }
