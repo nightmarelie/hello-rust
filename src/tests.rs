@@ -63,6 +63,6 @@ mod tests {
     fn greeting_contains_name() {
         let result = greeting("Cargo");
 
-        assert!(result.contains("Cargo"));
+        assert!(result.contains("Cargo"), "Greeting did not contain name, value was `{}`", result);
     }
 }
