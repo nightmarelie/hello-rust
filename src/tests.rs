@@ -24,6 +24,10 @@ pub fn test() {
     println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
 }
 
+fn greeting(name: &str) -> String {
+    format!("Hello {}!", name)
+}
+
 // test
 #[cfg(test)]
 mod tests {
@@ -53,5 +57,12 @@ mod tests {
     #[test]
     fn it_adds_two_2() {
         assert_ne!(5, add_two(2));
+    }
+
+    #[test]
+    fn greeting_contains_name() {
+        let result = greeting("Cargo");
+
+        assert!(result.contains("Cargo"));
     }
 }
