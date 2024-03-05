@@ -10,6 +10,10 @@ impl Rectangle {
     }
 }
 
+fn add_two(a: i32) -> i32 {
+    a + 2
+}
+
 pub fn test() {
     let rect1 = Rectangle { width: 30, height: 50 };
     let rect2 = Rectangle { width: 10, height: 40 };
@@ -39,5 +43,10 @@ mod tests {
         let rect2 = Rectangle { width: 5, height: 1 };
 
         assert!(!rect2.can_hold(&rect1));
+    }
+
+    #[test]
+    fn it_adds_two() {
+        assert_eq!(4, add_two(2));
     }
 }
