@@ -1,5 +1,5 @@
-mod life_time;
+mod tests;
 
 fn main() {
-    life_time::example();
+    tests::test();
 }
