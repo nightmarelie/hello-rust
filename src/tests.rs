@@ -67,7 +67,7 @@ mod tests {
     }
 
     #[test]
-    #[should_panic]
+    #[should_panic(expected = "test")]
     fn test_run() {
         panic!("test")
     }
