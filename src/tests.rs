@@ -49,4 +49,9 @@ mod tests {
     fn it_adds_two() {
         assert_eq!(4, add_two(2));
     }
+
+    #[test]
+    fn it_adds_two_2() {
+        assert_ne!(5, add_two(2));
+    }
 }
