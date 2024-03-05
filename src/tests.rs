@@ -65,4 +65,10 @@ mod tests {
 
         assert!(result.contains("Cargo"), "Greeting did not contain name, value was `{}`", result);
     }
+
+    #[test]
+    #[should_panic]
+    fn test_run() {
+        panic!("test")
+    }
 }
