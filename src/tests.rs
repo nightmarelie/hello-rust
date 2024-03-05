@@ -32,4 +32,12 @@ mod tests {
 
         assert!(rect1.can_hold(&rect2));
     }
+
+    #[test]
+    fn smaller_cannot_hold_larger() {
+        let rect1 = Rectangle { width: 8, height: 7 };
+        let rect2 = Rectangle { width: 5, height: 1 };
+
+        assert!(!rect2.can_hold(&rect1));
+    }
 }
