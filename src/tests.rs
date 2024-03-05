@@ -26,12 +26,10 @@ mod tests {
     use super::*;
 
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
+    fn larger_can_hold_smaller() {
+        let rect1 = Rectangle { width: 8, height: 7 };
+        let rect2 = Rectangle { width: 5, height: 1 };
 
-    #[test]
-    fn failing_test() {
-        panic!("Make this test fail");
+        assert!(rect1.can_hold(&rect2));
     }
 }
