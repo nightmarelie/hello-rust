@@ -24,6 +24,7 @@ cargo build
 cargo run -q
 ```
 
+# Tests
 ## Run the tests
 ```bash
 cargo test
@@ -37,6 +38,16 @@ cargo test --help
 ## Run the test with the -- --help flag
 ```bash
 cargo test -- --help
+```
+
+## Helpful flags
+```bash
+cargo test -- --help
+cargo test -- --show-output
+cargo test -- --nocapture
+cargo test -- --ignored
+cargo test -- --test-threads=1
+cargo test -- --ignored --test-threads=1
 ```
 
 ## Build the project
