@@ -1,5 +1,6 @@
 // All tests run in parallel by default, so make sure your tests don’t depend on each other or on any shared state, including a shared environment, such as the current working directory or environment variables. If your tests do depend on shared state, you can serialize them by specifying the --test-threads=1 flag to the test runner. For example, to run the tests in tests.rs one at a time:
 // All tests run in a separate thread, so they can’t share mutable state. This is why the tests in tests.rs don’t need to be in a module called integration_tests. Cargo treats the tests in tests.rs as integration tests regardless of whether they’re in a module.
+// Output from tests is captured, and by default, cargo test hides it. If a test passes, you’ll see a single line with the test name and a check mark. If a test fails, you’ll see a detailed report with the failure message, the expected result, and the actual result. If you want to see the output from passing tests, you can run cargo test -- --show-output.
 #[derive(Debug)]
 pub struct Rectangle {
     width: u32,

@@ -29,6 +29,16 @@ cargo run -q
 cargo test
 ```
 
+## Run test help command
+```bash
+cargo test --help
+```
+
+## Run the test with the -- --help flag
+```bash
+cargo test -- --help
+```
+
 ## Build the project
 ```bash
 cargo build --release
