@@ -32,9 +32,11 @@ fn greeting(name: &str) -> String {
 }
 
 // test
+// cfg - stands for configuration
+// #[cfg(test)] - only compile and run the code when running tests
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::*; // import everything from the parent module. All public and private items are available to the child module.
 
     #[test]
     fn larger_can_hold_smaller() {

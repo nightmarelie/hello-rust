@@ -53,7 +53,7 @@ cargo test -- --ignored --test-threads=1
 ## Build the project
 ```bash
 cargo build --release
-```
+``` 
 
 ## Check the project
 ```bash
