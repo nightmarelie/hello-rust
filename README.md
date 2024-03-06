@@ -48,6 +48,7 @@ cargo test -- --nocapture
 cargo test -- --ignored
 cargo test -- --test-threads=1
 cargo test -- --ignored --test-threads=1
+cargo test -- --test integration_test
 ```
 
 ## Build the project
