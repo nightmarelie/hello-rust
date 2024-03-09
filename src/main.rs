@@ -1,5 +1,5 @@
-mod tests;
+mod closures;
 
 fn main() {
-    tests::test();
+    closures::simulated_expensive_calculation(2);
 }
