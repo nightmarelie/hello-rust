@@ -9,21 +9,40 @@ pub fn simulated_expensive_calculation(intensity: u32) -> u32 {
     intensity
 }
 
+struct Cacher<T>
+    where T: Fn(u32) -> u32
+{
+    calculation: T,
+    value: Option<u32>,
+}
+
 pub fn generate_workout(intensity: u32, random_number: u32) {
-    let expensive_closure = |num: u32| -> u32 {
-        println!("calculating slowly...");
-        thread::sleep(Duration::from_secs(2));
-        num
+    // The closure is stored in the calculation field of the Cacher instance. The value field is an Option<u32> because the Cacher can store the result of the closure if it has been run with a value. The value field is None at the start.
+    let mut expensive_result = Cacher {
+        calculation: |num| {
+            println!("calculating slowly...");
+            thread::sleep(Duration::from_secs(2));
+            num
+        },
+        value: None,
     };
 
     if intensity < 25 {
         println!(
             "Today, do {} pushups!",
-            expensive_closure(intensity)
+            expensive_result.value.unwrap_or_else(|| {
+                let v = expensive_result.calculation(intensity);
+                expensive_result.value = Some(v);
+                v
+            })
         );
         println!(
             "Next, do {} situps!",
-            expensive_closure(intensity)
+            expensive_result.value.unwrap_or_else(|| {
+                let v = expensive_result.calculation(intensity);
+                expensive_result.value = Some(v);
+                v
+            })
         );
     } else {
         if random_number == 3 {
@@ -31,7 +50,11 @@ pub fn generate_workout(intensity: u32, random_number: u32) {
         } else {
             println!(
                 "Today, run for {} minutes!",
-                expensive_closure(intensity)
+                expensive_result.value.unwrap_or_else(|| {
+                    let v = expensive_result.calculation(intensity);
+                    expensive_result.value = Some(v);
+                    v
+                })
             );
         }
     }
