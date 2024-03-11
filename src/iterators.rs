@@ -9,20 +9,33 @@ pub fn example() {
 }
 
 // all iterators implement the Iterator trait
-pub trait Iterator {
-    type Item;
-
-    fn next(&mut self) -> Option<Self::Item>;
-
-    // default implementation
-}
+// pub trait Iterator {
+//     type Item;
+//
+//     fn next(&mut self) -> Option<Self::Item>; // associated type
+//
+//     // default implementation
+// }
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    // use super::*;
+
+    // #[test]
+    // fn test_example() {
+    //     example();
+    // }
 
     #[test]
-    fn test_example() {
-        example();
+    fn iterator_demonstration() {
+        let v1 = vec![1, 2, 3];
+
+        let mut v1_iter = v1.iter();
+
+        assert_eq!(v1_iter.next(), Some(&1));
+        assert_eq!(v1_iter.next(), Some(&2));
+        assert_eq!(v1_iter.next(), Some(&3));
+        assert_eq!(v1_iter.next(), None);
     }
 }
+
