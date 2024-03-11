@@ -8,6 +8,15 @@ pub fn example() {
     }
 }
 
+// all iterators implement the Iterator trait
+pub trait Iterator {
+    type Item;
+
+    fn next(&mut self) -> Option<Self::Item>;
+
+    // default implementation
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
