@@ -1,3 +1,9 @@
+#[derive(PartialEq, Debug)]
+pub struct Shoe {
+    size: u32,
+    style: String,
+}
+
 pub fn example() {
     let vec = vec![1, 2, 3];
     // iterator is lazy, it does not do anything until it is used
@@ -6,6 +12,23 @@ pub fn example() {
     for val in vec_iter {
         println!("Got: {}", val);
     }
+
+    let mut shoes = vec![
+        Shoe { size: 10, style: String::from("sneaker") },
+        Shoe { size: 13, style: String::from("sandal") },
+        Shoe { size: 10, style: String::from("boot") },
+    ];
+
+    shoes.sort_by(|a, b| a.size.cmp(&b.size));
+    println!("{:?}", shoes);
+
+    let in_my_size = filters_shoes(shoes, 10);
+    println!("{:?}", in_my_size);
+}
+
+
+fn filters_shoes(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
+    shoes.into_iter().filter(|s| s.size == shoe_size).collect()
 }
 
 // all iterators implement the Iterator trait
