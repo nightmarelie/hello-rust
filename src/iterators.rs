@@ -42,7 +42,7 @@ fn filters_shoes(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
 
 #[cfg(test)]
 mod tests {
-    // use super::*;
+    use super::*;
 
     // #[test]
     // fn test_example() {
@@ -101,6 +101,25 @@ mod tests {
         let v2: Vec<_> = v1.iter().map(|x| x + 1).collect();
 
         assert_eq!(v2, vec![2, 3, 4]);
+    }
+
+    #[test]
+    fn iterator_filter() {
+        let shoes = vec![
+            Shoe { size: 10, style: String::from("sneaker") },
+            Shoe { size: 13, style: String::from("sandal") },
+            Shoe { size: 10, style: String::from("boot") },
+        ];
+
+        let in_my_size = super::filters_shoes(shoes, 10);
+
+        assert_eq!(
+            in_my_size,
+            vec![
+                Shoe { size: 10, style: String::from("sneaker") },
+                Shoe { size: 10, style: String::from("boot") },
+            ]
+        );
     }
 }
 
