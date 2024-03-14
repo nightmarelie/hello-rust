@@ -53,6 +53,8 @@ cargo test -- --test integration_test
 
 ## Build the project
 ```bash
+cargo build
+
 cargo build --release
 ``` 
 
