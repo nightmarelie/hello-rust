@@ -51,7 +51,7 @@ cargo test -- --ignored --test-threads=1
 cargo test -- --test integration_test
 ```
 
-## Build the project
+## Build the project with dev and release profile
 ```bash
 cargo build
 
