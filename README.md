@@ -62,3 +62,14 @@ cargo build --release
 ```bash
 cargo check
 ```
+
+## Create doc for the project
+```bash
+cargo doc
+```
+
+## Open the doc in the browser
+```bash
+cargo doc --open
+```
+
