@@ -1,5 +1,5 @@
-mod iterators;
+mod smart_pointer;
 
 fn main() {
-    iterators::example();
+    smart_pointer::example();
 }
