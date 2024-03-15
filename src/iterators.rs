@@ -1,3 +1,9 @@
+//! Iterators
+//!
+//! Iterators are a way of processing a series of elements. They are a way of abstracting the process of iterating over a series of elements.
+//!
+//! Iterators are a way of abstracting the process of iterating over a series of elements. They are zero-cost abstractions that can be used to perform operations on a series of elements. They are a way of processing a series of elements.
+
 #[derive(PartialEq, Debug)]
 pub struct Shoe {
     size: u32,

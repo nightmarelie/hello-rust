@@ -1,3 +1,9 @@
+mod iterators;
+
+fn test() {
+    iterators::example();
+}
+
 // use rand::{Rng, CryptoRng};
 // use std::io::*;
 //
