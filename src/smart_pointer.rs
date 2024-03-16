@@ -6,6 +6,13 @@ enum List {
 
 use List::{Cons, Nil};
 
+// space is allocated on the heap for the values
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
 
 pub fn example () {
     let b = Box::new(5);
