@@ -22,7 +22,19 @@ pub fn example() {
     let m = MyBox::new(String::from("Rust"));
     hello(&m);
     // &MyBox<String> -> &String -> &str
-    hello(&(*m)[..]); // (*m) dereferences the MyBox<String> into a String, and & and [..] then take a string slice of the String that is equal to the whole string to match the signature of hello.
+    hello(&(*m)[..]); // (*m) dereferences the MyBox<String> into a String, and & and [..] then take a string
+    // slice of the String that is equal to the whole string to match the signature of hello.
+
+
+    let c = CustomSmartPointer {
+        data: String::from("my stuff"),
+    };
+
+    let d = CustomSmartPointer {
+        data: String::from("other stuff"),
+    };
+
+    println!("CustomSmartPointers created.");
 }
 
 fn hello (name: &str) {
