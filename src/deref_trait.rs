@@ -18,6 +18,15 @@ pub fn example() {
 
     assert_eq!(5, x);
     assert_eq!(5, *y);
+
+    let m = MyBox::new(String::from("Rust"));
+    hello(&m);
+    // &MyBox<String> -> &String -> &str
+    hello(&(*m)[..]); // (*m) dereferences the MyBox<String> into a String, and & and [..] then take a string slice of the String that is equal to the whole string to match the signature of hello.
+}
+
+fn hello (name: &str) {
+    println!("Hello, {}!", name);
 }
 
 struct MyBox<T>(T);
