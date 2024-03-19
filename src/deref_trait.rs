@@ -34,6 +34,8 @@ pub fn example() {
         data: String::from("other stuff"),
     };
 
+    drop(c); // Explicitly drop a value early by calling the std::mem::drop function.
+
     println!("CustomSmartPointers created.");
 }
 
