@@ -1,5 +1,5 @@
-mod deref_trait;
+mod smart_pointer;
 
 fn main() {
-    deref_trait::example();
+    smart_pointer::example();
 }

@@ -1,10 +1,12 @@
+use std::rc::Rc;
+use List::{Cons, Nil};
+
 #[derive(Debug)]
 enum List {
-    Cons(i32, Box<List>),
+    // reference counting
+    Cons(i32, Rc<List>),
     Nil,
 }
-
-use List::{Cons, Nil};
 
 // space is allocated on the heap for the values
 enum Message {
@@ -19,6 +21,12 @@ pub fn example () {
 
     println!("b = {}", b);
 
-    let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
-    println!("list = {:?}", list);
+    let a = Cons(1, Rc::new(Cons(2, Rc::new(Cons(3, Rc::new(Nil))))));
+
+    let b = Cons(3, Rc::new(a));
+    let c = Cons(4, Rc::new(a));
+
+    println!("list = {:?}", a);
+
+
 }
