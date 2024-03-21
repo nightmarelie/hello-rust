@@ -98,5 +98,15 @@ mod tests {
 
         assert_eq!(mock_messenger.sent_messages.len(), 1);
     }
+
+    #[test]
+    fn it_sends_an_over_90_percent_warning_message() {
+        let mock_messenger = MockMessenger::new();
+        let mut limit_tracker = LimitTracker::new(&mock_messenger, 100);
+
+        limit_tracker.set_value(91);
+
+        assert_eq!(mock_messenger.sent_messages.len(), 1);
+    }
 }
 
