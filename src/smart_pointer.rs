@@ -35,11 +35,13 @@ pub fn example () {
 
     println!("a initial rc count = {}", Rc::strong_count(&a));
     println!("a next item = {:?}", a.tail());
-
-
     println!("list = {:?}", a);
 
+    let b = Rc::new(Cons(2, RefCell::new(Rc::clone(&a))));
 
+    println!("a rc count after b creation = {}", Rc::strong_count(&a));
+    println!("b initial rc count = {}", Rc::strong_count(&b));
+    println!("b next item = {:?}", b.tail());
 }
 
 pub trait Messenger {
