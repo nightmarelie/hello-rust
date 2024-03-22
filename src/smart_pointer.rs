@@ -31,10 +31,11 @@ pub fn example () {
 
     println!("b = {}", b);
 
-    let a = Rc::new(Cons(1, Rc::new(Cons(2, Rc::new(Cons(3, Rc::new(Nil)))))));
+    let a = Rc::new(Cons(1, RefCell::new(Rc::new(Nil))));
 
-    let b = Rc::new(Cons(3, Rc::clone(&a)));
-    let c = Rc::new(Cons(4, Rc::clone(&a)));
+    println!("a initial rc count = {}", Rc::strong_count(&a));
+    println!("a next item = {:?}", a.tail());
+
 
     println!("list = {:?}", a);
 
