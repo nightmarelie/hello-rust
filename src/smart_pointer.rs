@@ -18,6 +18,12 @@ impl List {
     }
 }
 
+#[derive(Debug)]
+struct Node {
+    value: i32,
+    children: RefCell<Vec<Rc<Node>>>,
+}
+
 // space is allocated on the heap for the values
 enum Message {
     Quit,
