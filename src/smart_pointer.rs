@@ -2,6 +2,15 @@ use std::cell::RefCell;
 use std::rc::{Rc, Weak};
 use List::{Cons, Nil};
 
+// Smart pointers are data structures that not only act like a pointer but also have additional metadata and capabilities.
+// The smart pointer pattern is a general programming pattern that you can implement in Rust using trait implementations.
+// Smart pointers are usually implemented using structs. The characteristic that distinguishes a smart pointer from an ordinary struct is that smart pointers implement the Deref and Drop traits.
+// The Deref trait allows an instance of the smart pointer struct to behave like a reference so you can write code that works with either references or smart pointers.
+// The Drop trait allows you to customize the code that is run when an instance of the smart pointer goes out of scope.
+// Smart pointers are usually used for implementing reference counting or interior mutability patterns.
+// The Rc<T> type keeps track of the number of references to a value which determines whether or not a value is still in use.
+// The RefCell<T> type represents single ownership over the data it holds, but it allows mutable borrows checked at runtime.
+
 #[derive(Debug)]
 enum List {
     // reference counting
