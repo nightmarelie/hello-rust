@@ -1,5 +1,9 @@
 use std::ops::Deref;
 
+// The Deref trait, provided by the standard library, requires us to implement one method named deref that borrows self and returns a reference to the inner data.
+// By implementing the Deref trait on the MyBox type, we can call the dereference operator on an instance of MyBox, which will then in turn call the deref method.
+// The reason the deref method returns a reference to a value, and that the standard library provides the Deref trait, is so the dereference operator can be used in an expression that needs a reference.
+
 pub fn example() {
     let x = 5;
     let y = &x;
