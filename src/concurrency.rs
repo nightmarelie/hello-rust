@@ -1,5 +1,6 @@
 use std::thread;
 use std::time::Duration;
+use std::sync::mpsc; // multiple producer, single consumer
 
 pub fn example() {
     let handler = thread::spawn(|| {
@@ -26,4 +27,15 @@ pub fn example() {
     });
 
     handle.join().unwrap();
+}
+
+pub fn example2() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let val = String::from("hi");
+
+        tx.send(val).unwrap();
+        // println!("val is {}", val); // this will not compile because val has been moved to the spawned thread
+    });
 }
