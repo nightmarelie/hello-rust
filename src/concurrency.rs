@@ -18,4 +18,12 @@ pub fn example() {
 
     // at this point the spawned thread may or may not have finished executing
     // if the spawned thread has not finished executing, the main thread will exit and the spawned thread will be terminated
+
+    let v = vec![1, 2, 3];
+
+    let handle = thread::spawn(move || {
+        println!("Here's a vector {:?}", v)
+    });
+
+    handle.join().unwrap();
 }
