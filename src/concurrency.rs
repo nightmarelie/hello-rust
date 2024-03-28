@@ -33,12 +33,12 @@ pub fn example2() {
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
-        let msg = String::from("hi");
+        let msg = String::from("hi"); // we can pass any type of message
 
         tx.send(msg).unwrap();
         // println!("val is {}", val); // this will not compile because val has been moved to the spawned thread
     });
 
-    let received = rx.recv().unwrap();
+    let received = rx.recv().unwrap(); // in production code, we would handle the Result returned by try_recv and recv. In this case, we are using unwrap to panic if the Result is an Err.
     println!("Got message {}", received);
 }
