@@ -33,9 +33,12 @@ pub fn example2() {
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
-        let val = String::from("hi");
+        let msg = String::from("hi");
 
-        tx.send(val).unwrap();
+        tx.send(msg).unwrap();
         // println!("val is {}", val); // this will not compile because val has been moved to the spawned thread
     });
+
+    let received = rx.recv().unwrap();
+    println!("Got message {}", received);
 }
