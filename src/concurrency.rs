@@ -47,6 +47,7 @@ pub fn example2() {
         }
     });
 
-    let received = rx.recv().unwrap(); // in production code, we would handle the Result returned by try_recv and recv. In this case, we are using unwrap to panic if the Result is an Err.
-    println!("Got message {}", received);
+    for received in rx {
+        println!("Got: {}", received);
+    }
 }
