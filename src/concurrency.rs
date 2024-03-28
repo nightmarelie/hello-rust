@@ -33,10 +33,18 @@ pub fn example2() {
     let (tx, rx) = mpsc::channel();
 
     thread::spawn(move || {
-        let msg = String::from("hi"); // we can pass any type of message
+        let vals = vec![
+            String::from("hi"),
+            String::from("from"),
+            String::from("the"),
+            String::from("spawned"),
+            String::from("thread"),
+        ];
 
-        tx.send(msg).unwrap();
-        // println!("val is {}", val); // this will not compile because val has been moved to the spawned thread
+        for val in vals {
+            tx.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
     });
 
     let received = rx.recv().unwrap(); // in production code, we would handle the Result returned by try_recv and recv. In this case, we are using unwrap to panic if the Result is an Err.
