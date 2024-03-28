@@ -31,6 +31,7 @@ pub fn example() {
 
 pub fn example2() {
     let (tx, rx) = mpsc::channel();
+    let tx2 = tx.clone();
 
     thread::spawn(move || {
         let vals = vec![
@@ -43,6 +44,21 @@ pub fn example2() {
 
         for val in vals {
             tx.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    thread::spawn(move || {
+        let vals = vec![
+            String::from("hi1"),
+            String::from("from1"),
+            String::from("the1"),
+            String::from("spawned1"),
+            String::from("thread1"),
+        ];
+
+        for val in vals {
+            tx2.send(val).unwrap();
             thread::sleep(Duration::from_secs(1));
         }
     });
