@@ -1,8 +1,7 @@
-use std::rc::Rc;
+use std::sync::{Arc, Mutex};
+use std::sync::mpsc;
 use std::thread;
 use std::time::Duration;
-use std::sync::mpsc; // multiple producer, single consumer
-use std::sync::{Mutex, Arc};
 
 pub fn example() {
     let handler = thread::spawn(|| {
@@ -70,14 +69,14 @@ pub fn example2() {
     }
 }
 
-pub fn example3 () {
+pub fn example3() {
     // Mutex<T> is a smart pointer that allows multiple threads to access the data in a mutable way
     let m = Mutex::new(4);
 
-        {
-            let mut num = m.lock().unwrap();
-            *num = 6; // using dereference operator to change the value of the Mutex<T>
-        }
+    {
+        let mut num = m.lock().unwrap();
+        *num = 6; // using dereference operator to change the value of the Mutex<T>
+    }
 
     println!("m = {:?}", m);
 
