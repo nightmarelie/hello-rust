@@ -78,4 +78,5 @@ pub fn example3 () {
             *num = 6; // using dereference operator to change the value of the Mutex<T>
         }
 
+    println!("m = {:?}", m);
 }
