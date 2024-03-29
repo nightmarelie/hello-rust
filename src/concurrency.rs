@@ -1,6 +1,7 @@
 use std::thread;
 use std::time::Duration;
 use std::sync::mpsc; // multiple producer, single consumer
+use std::sync::Mutex;
 
 pub fn example() {
     let handler = thread::spawn(|| {
@@ -66,4 +67,15 @@ pub fn example2() {
     for received in rx {
         println!("Got: {}", received);
     }
+}
+
+pub fn example3 () {
+    // Mutex<T> is a smart pointer that allows multiple threads to access the data in a mutable way
+    let m = Mutex::new(4);
+
+        {
+            let mut num = m.lock().unwrap();
+            *num = 6; // using dereference operator to change the value of the Mutex<T>
+        }
+
 }
