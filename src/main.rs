@@ -1,5 +1,5 @@
-mod concurrency;
+mod oop;
 
 fn main() {
-    concurrency::example3();
+    oop::example();
 }
