@@ -50,3 +50,11 @@ pub trait Draw {
 pub struct Screen {
     pub components: Vec<Box<dyn Draw>>, // dyn stands fot dynamic dispatch
 }
+
+impl Screen {
+    pub fn run(&self) {
+        for component in self.components.iter() {
+            component.draw();
+        }
+    }
+}
