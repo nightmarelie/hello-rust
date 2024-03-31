@@ -1,5 +1,5 @@
 mod oop;
 
 fn main() {
-    oop::example();
+    oop::example1();
 }
