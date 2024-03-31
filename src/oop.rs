@@ -42,3 +42,11 @@ pub fn example() {
 
     println!("Average: {}", ac.average());
 }
+
+pub trait Draw {
+    fn draw(&self);
+}
+
+pub struct Screen {
+    pub components: Vec<Box<dyn Draw>>, // dyn stands fot dynamic dispatch
+}
