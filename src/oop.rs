@@ -58,3 +58,50 @@ impl Screen {
         }
     }
 }
+
+pub struct Button {
+    pub width: u32,
+    pub height: u32,
+    pub label: String,
+}
+
+impl Draw for Button {
+    fn draw(&self) {
+        println!("Drawing a button with width: {}, height: {}, and label: {}", self.width, self.height, self.label);
+    }
+}
+
+pub struct SelectBox {
+    pub width: u32,
+    pub height: u32,
+    pub options: Vec<String>,
+}
+
+impl Draw for SelectBox {
+    fn draw(&self) {
+        println!("Drawing a select box with width: {}, height: {}, and options: {:?}", self.width, self.height, self.options);
+    }
+}
+
+pub fn example1 () {
+    let screen = Screen {
+        components: vec![
+            Box::new(Button {
+                width: 75,
+                height: 10,
+                label: String::from("OK"),
+            }),
+            Box::new(SelectBox {
+                width: 50,
+                height: 10,
+                options: vec![
+                    String::from("Yes"),
+                    String::from("Maybe"),
+                    String::from("No"),
+                ],
+            }),
+        ],
+    };
+
+    screen.run();
+}
