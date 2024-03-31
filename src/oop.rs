@@ -84,6 +84,15 @@ impl Draw for SelectBox {
 }
 
 pub fn example1 () {
+    // Rules of trait objects:
+    // 1. We can create a trait object from a type that implements the trait.
+    // 2. We can only make trait objects from types that implement the trait.
+    // 3. We can't return a trait object from a function unless we use a Box or a similar type to store the object.
+    // 4. We can't use trait objects that have a generic type parameter.
+    // 5. We can't use trait objects that have a Self type parameter.
+    // 6. We can't use trait objects that have an associated type parameter.
+    // 7. We can't implement a method on a trait object unless the method is object safe.
+    // 8. We can't return a trait object that has a generic type parameter unless we use a Box or a similar type to store the object.
     let screen = Screen {
         components: vec![
             Box::new(Button {
