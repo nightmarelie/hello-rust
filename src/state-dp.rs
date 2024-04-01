@@ -1,5 +1,5 @@
 pub struct Post {
-    state: Option<Box<dyn State>>,
+    state: Option<Box<dyn State>>, // Box<dyn State> is a trait object, which allows for different types of values, such as structs that implement the State trait.
     content: String,
 }
 
@@ -35,6 +35,18 @@ impl Post {
 trait State {
     fn request_review(self: Box<Self>) -> Box<dyn State>;
     fn approve(self: Box<Self>) -> Box<dyn State>;
+}
+
+struct Draft {}
+
+impl State for Draft {
+    fn request_review(self: Box<Self>) -> Box<dyn State> {
+        Box::new(PendingReview {})
+    }
+
+    fn approve(self: Box<Self>) -> Box<dyn State> {
+        self
+    }
 }
 
 pub fn example () {
