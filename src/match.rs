@@ -25,4 +25,13 @@ pub fn example () {
     while let Some(top) = stack.pop() {
         println!("{}", top);
     }
+
+    // condition matching
+    let number = 13;
+
+    match number {
+        n if n < 5 => println!("{} is less than five", n),
+        n if n > 5 => println!("{} is greater than five", n),
+        _ => println!("{} is five", number),
+    }
 }
