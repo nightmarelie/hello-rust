@@ -34,4 +34,11 @@ pub fn example () {
         n if n > 5 => println!("{} is greater than five", n),
         _ => println!("{} is five", number),
     }
+
+    // with some
+    let some_number = Some(5);
+
+    if let Some(n) = some_number {
+        println!("n is {}", n);
+    }
 }
