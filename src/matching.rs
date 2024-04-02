@@ -45,7 +45,7 @@ pub fn example () {
     // let statements
     let (x, y, _) = (1, 2, 3);
 
-    print_coordinates(º&(x, y));
+    print_coordinates(&(x, y));
 
     // refutable pattern and irrefutable pattern
 
