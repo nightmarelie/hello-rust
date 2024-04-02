@@ -41,4 +41,7 @@ pub fn example () {
     if let Some(n) = some_number {
         println!("n is {}", n);
     }
+
+    // let statements
+    let (x, y, z) = (1, 2, 3);
 }
