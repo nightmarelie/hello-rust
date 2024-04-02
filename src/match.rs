@@ -43,5 +43,11 @@ pub fn example () {
     }
 
     // let statements
-    let (x, y, z) = (1, 2, 3);
+    let (x, y, _) = (1, 2, 3);
+
+    print_coordinates(º&(x, y));
+}
+
+fn print_coordinates(&(x, y): &(i32, i32)) {
+    println!("Current location: ({}, {})", x, y);
 }
