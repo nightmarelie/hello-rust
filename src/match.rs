@@ -46,6 +46,22 @@ pub fn example () {
     let (x, y, _) = (1, 2, 3);
 
     print_coordinates(º&(x, y));
+
+    // refutable pattern and irrefutable pattern
+
+    // refutable pattern
+    let some_value: Option<i32> = Some(5);
+
+    if let Some(value) = some_value {
+        println!("value is {}", value);
+    } else {
+        println!("value is None");
+    }
+
+    // irrefutable pattern
+
+    // let some_value: Option<i32> = Some(5);
+
 }
 
 fn print_coordinates(&(x, y): &(i32, i32)) {
