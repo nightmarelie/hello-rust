@@ -5,7 +5,7 @@ enum Language {
     JavaScript,
 }
 
-pub fn example () {
+pub fn example() {
     let lang = Language::Rust;
 
     match lang {
@@ -62,6 +62,8 @@ pub fn example () {
 
     // let some_value: Option<i32> = Some(5);
 
+    // Can only accept irrefutable patterns
+    // function parameters, let statements, and for loops
 }
 
 fn print_coordinates(&(x, y): &(i32, i32)) {
