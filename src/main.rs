@@ -1,5 +1,5 @@
-mod matching;
+mod pattern_syntax;
 
 fn main() {
-    matching::example();
+    pattern_syntax::example();
 }

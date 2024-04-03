@@ -75,5 +75,9 @@ cargo doc --open
 
 ## Format all files according to standard
 ```bash
-cargo fmt
+cargo fmt --all
+```
+or
+```bash
+find . -name "*.rs" -exec rustfmt {} \; 
 ```
