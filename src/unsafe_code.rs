@@ -23,7 +23,7 @@ pub fn example() {
     let mut v = vec![1, 2, 3, 4];
     let r = &mut v[..];
     
-    let (a, b) = r.split_at_mut(1);
+    let (a, b) = split_at_mut(r, 3);
     
     println!("{:?}", a);
     println!("{:?}", b);
@@ -31,4 +31,22 @@ pub fn example() {
     // 4. Implement an unsafe trait
 
     // 5. Access fields of unions
+}
+
+fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
+    let len = slice.len();
+    let ptr = slice.as_mut_ptr();
+    
+    assert!(mid <= len);
+    
+    unsafe {
+        (
+            from_raw_parts_mut(&ptr, &mid),
+            from_raw_parts_mut(&ptr.add(mid), &(len - &mid)),
+        )
+    }
+}
+
+fn from_raw_parts_mut<T>(ptr: &*mut T, len: &usize) -> &'static mut [T] {
+    unsafe { std::slice::from_raw_parts_mut(*ptr, *len) }
 }
