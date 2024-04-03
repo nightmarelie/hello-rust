@@ -41,7 +41,7 @@ struct Rectangle {
 
 impl Rectangle {
     fn area(&self) -> u32 {
-        self.width  * self.height
+        self.width * self.height
     }
 
     fn can_hold(&self, other: &Rectangle) -> bool {
@@ -56,7 +56,6 @@ impl Rectangle {
             height: size,
         }
     }
-
 }
 
 pub fn example() -> Game {
@@ -115,7 +114,10 @@ pub fn example() -> Game {
 
     println!("The result of structure example is: {:#?}", rect);
     println!("The result of rect3 example is: {:#?}", rect3);
-    println!("The area of the rectangle is {} square pixels.", rect.area());
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect.area()
+    );
     println!("Can rect hold rect2? {}", rect.can_hold(&rect2));
     println!("Can rect hold rect? {}", rect2.can_hold(&rect));
 

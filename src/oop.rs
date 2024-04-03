@@ -67,7 +67,10 @@ pub struct Button {
 
 impl Draw for Button {
     fn draw(&self) {
-        println!("Drawing a button with width: {}, height: {}, and label: {}", self.width, self.height, self.label);
+        println!(
+            "Drawing a button with width: {}, height: {}, and label: {}",
+            self.width, self.height, self.label
+        );
     }
 }
 
@@ -79,11 +82,14 @@ pub struct SelectBox {
 
 impl Draw for SelectBox {
     fn draw(&self) {
-        println!("Drawing a select box with width: {}, height: {}, and options: {:?}", self.width, self.height, self.options);
+        println!(
+            "Drawing a select box with width: {}, height: {}, and options: {:?}",
+            self.width, self.height, self.options
+        );
     }
 }
 
-pub fn example1 () {
+pub fn example1() {
     // Rules of trait objects:
     // 1. We can create a trait object from a type that implements the trait.
     // 2. We can only make trait objects from types that implement the trait.

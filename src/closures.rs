@@ -10,14 +10,16 @@ use std::time::Duration;
 // }
 
 struct Cacher<T>
-    where T: Fn(u32) -> u32
+where
+    T: Fn(u32) -> u32,
 {
     calculation: T,
     value: Option<u32>,
 }
 
 impl<T> Cacher<T>
-    where T: Fn(u32) -> u32
+where
+    T: Fn(u32) -> u32,
 {
     pub fn new(calculation: T) -> Cacher<T> {
         Cacher {
@@ -46,27 +48,18 @@ pub fn generate_workout(intensity: u32, random_number: u32) {
     });
 
     if intensity < 25 {
-        println!(
-            "Today, do {} push-ups!",
-            cached_result.value(intensity)
-        );
-        println!(
-            "Next, do {} sit-ups!",
-            cached_result.value(intensity)
-        );
+        println!("Today, do {} push-ups!", cached_result.value(intensity));
+        println!("Next, do {} sit-ups!", cached_result.value(intensity));
     } else {
         if random_number == 3 {
             println!("Take a break today! Remember to stay hydrated!");
         } else {
-            println!(
-                "Today, run for {} minutes!",
-                cached_result.value(intensity)
-            );
+            println!("Today, run for {} minutes!", cached_result.value(intensity));
         }
     }
 }
 
-pub fn capturing () {
+pub fn capturing() {
     let x = 4;
 
     // The closure captures the value of x from its environment and stores it in the closure. The closure then returns the value of x + 1, which is 5.

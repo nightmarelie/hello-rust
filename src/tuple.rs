@@ -1,4 +1,4 @@
-pub fn example (tuple: (i32, i32)) -> i32 {
+pub fn example(tuple: (i32, i32)) -> i32 {
     // example of destructuring a tuple
     let (x, y) = tuple;
 

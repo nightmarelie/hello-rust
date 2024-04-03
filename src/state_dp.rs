@@ -80,7 +80,7 @@ impl State for Published {
     }
 }
 
-pub fn example () {
+pub fn example() {
     let mut post = Post::new();
 
     post.add_text("I ate a salad for lunch today");

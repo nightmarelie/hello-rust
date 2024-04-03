@@ -1,4 +1,4 @@
-pub fn example () {
+pub fn example() {
     // 1. Strings
     // 1.1.1 Owned String
     // 1.1 Rust has only one string type in the core language, which is the string slice str that is usually seen in its borrowed form &str

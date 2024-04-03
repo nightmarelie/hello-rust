@@ -1,4 +1,4 @@
-pub fn example (arg1: bool) -> bool {
+pub fn example(arg1: bool) -> bool {
     // 1. Function
     // 1.1 Functions are declared using the fn keyword
     // 1.2 The return type of the function is declared after an arrow ->
@@ -8,5 +8,5 @@ pub fn example (arg1: bool) -> bool {
     // 1.6 The return keyword can be used to return early from a function
     // 1.7 The return value of the function is the value of the final expression in the block of the body of the function
 
-     arg1
+    arg1
 }

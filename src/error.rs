@@ -1,8 +1,8 @@
-use std::fs::{self, File};
-use std::io::ErrorKind;
-use std::io;
-use std::io::Read;
 use std::error::Error;
+use std::fs::{self, File};
+use std::io;
+use std::io::ErrorKind;
+use std::io::Read;
 
 pub fn examples() {
     // Error handling
@@ -24,16 +24,19 @@ pub fn examples() {
     let f = match f {
         Ok(file) => file,
         Err(error) => {
-            panic!("Problem opening the file: {:?}", match error.kind() {
-                ErrorKind::NotFound => match File::create("hello.txt") {
-                    Ok(fc) => fc,
-                    Err(e) => panic!("Tried to create file but there was a problem: {:?}", e),
-                },
-                other_error => {
-                    panic!("There was a problem opening the file: {:?}", other_error)
+            panic!(
+                "Problem opening the file: {:?}",
+                match error.kind() {
+                    ErrorKind::NotFound => match File::create("hello.txt") {
+                        Ok(fc) => fc,
+                        Err(e) => panic!("Tried to create file but there was a problem: {:?}", e),
+                    },
+                    other_error => {
+                        panic!("There was a problem opening the file: {:?}", other_error)
+                    }
                 }
-            })
-        },
+            )
+        }
     };
 
     let f = File::open("hello.txt").unwrap_or_else(|error| {
@@ -47,9 +50,6 @@ pub fn examples() {
     });
 
     // error propagation
-
-
-
 }
 
 #[cfg(test)]

@@ -42,7 +42,7 @@ enum Message {
     ChangeColor(i32, i32, i32),
 }
 
-pub fn example () {
+pub fn example() {
     let b = Box::new(5);
 
     println!("b = {}", b);
@@ -91,7 +91,8 @@ pub struct LimitTracker<'a, T: 'a + Messenger> {
 }
 
 impl<'a, T> LimitTracker<'a, T>
-    where T: Messenger
+where
+    T: Messenger,
 {
     pub fn new(messenger: &T, max: usize) -> LimitTracker<T> {
         LimitTracker {
@@ -129,7 +130,9 @@ mod tests {
 
     impl MockMessenger {
         fn new() -> MockMessenger {
-            MockMessenger { sent_messages: RefCell::new(vec![]) }
+            MockMessenger {
+                sent_messages: RefCell::new(vec![]),
+            }
         }
     }
 
@@ -159,4 +162,3 @@ mod tests {
         assert_eq!(mock_messenger.sent_messages.borrow().len(), 1);
     }
 }
-

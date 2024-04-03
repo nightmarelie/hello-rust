@@ -57,9 +57,18 @@ pub fn example() {
     }
 
     let mut shoes = vec![
-        Shoe { size: 10, style: String::from("sneaker") },
-        Shoe { size: 13, style: String::from("sandal") },
-        Shoe { size: 10, style: String::from("boot") },
+        Shoe {
+            size: 10,
+            style: String::from("sneaker"),
+        },
+        Shoe {
+            size: 13,
+            style: String::from("sandal"),
+        },
+        Shoe {
+            size: 10,
+            style: String::from("boot"),
+        },
     ];
 
     shoes.sort_by(|a, b| a.size.cmp(&b.size));
@@ -68,7 +77,6 @@ pub fn example() {
     let in_my_size = filters_shoes(shoes, 10);
     println!("{:?}", in_my_size);
 }
-
 
 fn filters_shoes(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
     shoes.into_iter().filter(|s| s.size == shoe_size).collect()
@@ -103,7 +111,6 @@ mod tests {
         assert_eq!(v1_iter.next(), Some(&3));
         assert_eq!(v1_iter.next(), None);
 
-
         let mut v1 = vec![1, 2, 3];
 
         let mut v1_iter = v1.iter_mut();
@@ -112,7 +119,6 @@ mod tests {
         assert_eq!(v1_iter.next(), Some(&mut 2));
         assert_eq!(v1_iter.next(), Some(&mut 3));
         assert_eq!(v1_iter.next(), None);
-
 
         let v1 = vec![1, 2, 3];
 
@@ -149,9 +155,18 @@ mod tests {
     #[test]
     fn iterator_filter() {
         let shoes = vec![
-            Shoe { size: 10, style: String::from("sneaker") },
-            Shoe { size: 13, style: String::from("sandal") },
-            Shoe { size: 10, style: String::from("boot") },
+            Shoe {
+                size: 10,
+                style: String::from("sneaker"),
+            },
+            Shoe {
+                size: 13,
+                style: String::from("sandal"),
+            },
+            Shoe {
+                size: 10,
+                style: String::from("boot"),
+            },
         ];
 
         let in_my_size = super::filters_shoes(shoes, 10);
@@ -159,8 +174,14 @@ mod tests {
         assert_eq!(
             in_my_size,
             vec![
-                Shoe { size: 10, style: String::from("sneaker") },
-                Shoe { size: 10, style: String::from("boot") },
+                Shoe {
+                    size: 10,
+                    style: String::from("sneaker")
+                },
+                Shoe {
+                    size: 10,
+                    style: String::from("boot")
+                },
             ]
         );
     }
@@ -179,7 +200,8 @@ mod tests {
 
     #[test]
     fn using_other_iterator_trait_methods() {
-        let sum: u32 = Counter::new().zip(Counter::new().skip(1))
+        let sum: u32 = Counter::new()
+            .zip(Counter::new().skip(1))
             .map(|(a, b)| a * b)
             .filter(|x| x % 3 == 0)
             .sum();
@@ -187,4 +209,3 @@ mod tests {
         assert_eq!(18, sum);
     }
 }
-

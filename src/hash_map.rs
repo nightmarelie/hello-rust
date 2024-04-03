@@ -25,13 +25,7 @@ mod tests {
 
     #[test]
     fn test_example() {
-        let mut numbers = HashMap::from[(
-            (1, 1),
-            (2, 2),
-            (3, 3),
-            (4, 4),
-            (5, 5),
-        )];
+        let mut numbers = HashMap::from[((1, 1), (2, 2), (3, 3), (4, 4), (5, 5))];
         numbers = example(numbers);
 
         let expected = HashMap::from([

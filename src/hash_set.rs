@@ -25,16 +25,7 @@ mod tests {
         numbers.insert(5);
         numbers = example(numbers);
 
-        let expected = HashSet::from([
-            1,
-            2,
-            3,
-            4,
-            5,
-            10,
-            11,
-            12,
-        ]);
+        let expected = HashSet::from([1, 2, 3, 4, 5, 10, 11, 12]);
 
         assert_eq!(numbers, expected);
     }

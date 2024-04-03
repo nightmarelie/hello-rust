@@ -3,7 +3,7 @@ struct Point<T, U> {
     y: U,
 }
 
-impl <T>Point<T, T> {
+impl<T> Point<T, T> {
     fn x(&self) -> &T {
         &self.x
     }
@@ -15,7 +15,7 @@ impl Point<i32, i32> {
     }
 }
 
-impl <T, U>Point<T, U> {
+impl<T, U> Point<T, U> {
     fn mixup<V, W>(self, other: Point<V, W>) -> Point<T, W> {
         Point {
             x: self.x,

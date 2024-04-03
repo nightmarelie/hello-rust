@@ -1,7 +1,7 @@
-use std::io;
-use std::cmp::Ordering;
-use rand::{thread_rng, Rng};
 use colored::*;
+use rand::{thread_rng, Rng};
+use std::cmp::Ordering;
+use std::io;
 
 pub fn run() {
     println!("Guess the number!");
@@ -15,7 +15,9 @@ pub fn run() {
 
         let mut guess = String::new();
 
-        io::stdin().read_line(&mut guess).expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
         // Here we are using shadowing to convert the type of guess from String to i32.
         // Also, we are using the match expression to handle the Result type returned from the parse method.

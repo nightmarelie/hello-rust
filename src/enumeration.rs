@@ -30,12 +30,13 @@ pub fn example(command: Command) {
     println!("The result of six is: {:?}", six);
     println!("The result of none is: {:?}", none);
 
-
     match command {
         Command::Quit => println!("Quitting"),
         Command::Move { x, y } => println!("Moving to x: {}, y: {}", x, y),
         Command::Speak(s) => println!("Speaking: {}", s),
-        Command::ChangeColor(r, g, b) => println!("Changing color to red: {}, green: {}, blue: {}", r, g, b),
+        Command::ChangeColor(r, g, b) => {
+            println!("Changing color to red: {}, green: {}, blue: {}", r, g, b)
+        }
     }
 }
 
@@ -82,7 +83,7 @@ fn value_in_cents(coin: Coin) -> u8 {
         Coin::Quarter(state) => {
             println!("State quarter from {:?}!", state);
             25
-        },
+        }
     }
 }
 

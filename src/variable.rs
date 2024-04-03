@@ -2,7 +2,7 @@
 pub static HELLO_WORLD: &str = "Hello, world!";
 pub static mut COUNTER: u32 = 0;
 
-pub fn example () -> i32 {
+pub fn example() -> i32 {
     // 1. Variables and Mutability
     // Define a variable
     // 1.1 This variable is immutable du default

@@ -4,11 +4,7 @@ pub fn example() {
     // 1.2 If-else expression
     // 1.3 If-else-if expression
     let y = 10;
-    let x = if (y < 10) {
-        5
-    } else {
-        6
-    };
+    let x = if (y < 10) { 5 } else { 6 };
 
     println!("The result of control_flow example is: {}", x);
 
@@ -47,7 +43,6 @@ pub fn example() {
 
     // 1.9 Some
     let some_number = Some(5);
-
 
     // 1.10 Match pattern and assign variable
     if let Some(5) = some_number {

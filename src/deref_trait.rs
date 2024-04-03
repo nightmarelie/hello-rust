@@ -27,8 +27,7 @@ pub fn example() {
     hello(&m);
     // &MyBox<String> -> &String -> &str
     hello(&(*m)[..]); // (*m) dereferences the MyBox<String> into a String, and & and [..] then take a string
-    // slice of the String that is equal to the whole string to match the signature of hello.
-
+                      // slice of the String that is equal to the whole string to match the signature of hello.
 
     let c = CustomSmartPointer {
         data: String::from("my stuff"),
@@ -43,7 +42,7 @@ pub fn example() {
     println!("CustomSmartPointers created.");
 }
 
-fn hello (name: &str) {
+fn hello(name: &str) {
     println!("Hello, {}!", name);
 }
 

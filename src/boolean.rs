@@ -1,4 +1,4 @@
-pub fn example (test: bool, test2: bool) -> bool {
+pub fn example(test: bool, test2: bool) -> bool {
     return test && test2;
 }
 

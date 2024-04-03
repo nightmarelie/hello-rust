@@ -101,7 +101,6 @@ impl<T: Display + PartialOrd> Pair<T> {
 //     }
 // }
 
-
 // Using Trait Objects That Allow for Values of Different Types
 // impl <T: Display> ToString for T {
 //     fn to_string(&self) -> String {
@@ -109,11 +108,10 @@ impl<T: Display + PartialOrd> Pair<T> {
 //     }
 // }
 
-
 // where clause
 pub fn some_function2<T>(item: &T)
-    where
-        T: Summary + Debug,
+where
+    T: Summary + Debug,
 {
     println!("Breaking news! {:?}", item);
 }
@@ -130,7 +128,9 @@ pub fn example() {
         headline: String::from("Penguins win the Stanley Cup Championship!"),
         location: String::from("Pittsburgh, PA, USA"),
         author: String::from("Iceburgh"),
-        content: String::from("The Pittsburgh Penguins once again are the best hockey team in the NHL."),
+        content: String::from(
+            "The Pittsburgh Penguins once again are the best hockey team in the NHL.",
+        ),
     };
 
     notify(&tweet);

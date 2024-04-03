@@ -1,5 +1,5 @@
-use std::sync::{Arc, Mutex};
 use std::sync::mpsc;
+use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time::Duration;
 
@@ -23,9 +23,7 @@ pub fn example() {
 
     let v = vec![1, 2, 3];
 
-    let handle = thread::spawn(move || {
-        println!("Here's a vector {:?}", v)
-    });
+    let handle = thread::spawn(move || println!("Here's a vector {:?}", v));
 
     handle.join().unwrap();
 }
@@ -79,7 +77,6 @@ pub fn example3() {
     }
 
     println!("m = {:?}", m);
-
 
     let counter = Arc::new(Mutex::new(0));
 

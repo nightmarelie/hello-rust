@@ -1,8 +1,7 @@
-use unicode_segmentation::UnicodeSegmentation;
 use std::collections::HashMap;
+use unicode_segmentation::UnicodeSegmentation;
 
 pub fn examples() {
-
     // Vectors
     // let a = [1, 2, 3, 4, 5];
 
@@ -103,7 +102,6 @@ pub fn examples() {
 
     println!("{:?}", map);
 }
-
 
 #[cfg(test)]
 mod tests {
