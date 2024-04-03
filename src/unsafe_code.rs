@@ -6,8 +6,11 @@ pub fn example() {
     let r1 = &num as *const i32; // immutable raw pointer
     let r2 = &mut num as *mut i32; // mutable raw pointer
     
-    let address = 0x012345usize;
-    let r = address as *const i32;
+    unsafe {
+        println!("r1 is: {}", *r1);
+        println!("r2 is: {}", *r2);
+    
+    }
 
     // 2. Call an unsafe function or method
 
