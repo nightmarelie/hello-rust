@@ -111,4 +111,13 @@ pub fn example() {
             )
         }
     }
+    
+    // Ignoring values in a pattern
+    let _numbers = (2, 4, 8, 16, 32);
+    
+    match _numbers {
+        (first, _, third, _, fifth) => {
+            println!("Some numbers: {}, {}, {}", first, third, fifth)
+        }
+    }
 }
