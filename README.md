@@ -73,3 +73,7 @@ cargo doc
 cargo doc --open
 ```
 
+## Format all files according to standard
+```bash
+cargo fmt
+```
