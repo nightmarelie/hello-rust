@@ -1,5 +1,5 @@
-mod pattern_syntax;
+mod unsafe_code;
 
 fn main() {
-    pattern_syntax::example();
+    unsafe_code::example();
 }
