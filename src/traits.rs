@@ -214,6 +214,12 @@ trait Wizard {
 
 struct Human;
 
+impl Human {
+    fn fly(&self) {
+        println!("*waving arms furiously*");
+    }
+}
+
 impl Pilot for Human {
     fn fly(&self) {
         println!("This is your captain speaking.");
@@ -223,6 +229,20 @@ impl Pilot for Human {
 impl Wizard for Human {
     fn fly(&self) {
         println!("Up!");
+    }
+}
+
+// Supertraits
+// A trait can require another trait to be implemented. For example, the OutlinePrint trait requires the Display trait to be implemented.
+trait OutlinePrint: Display {
+    fn outline_print(&self) {
+        let output = self.to_string();
+        let len = output.len();
+        println!("{}", "*".repeat(len + 4));
+        println!("*{}*", " ".repeat(len + 2));
+        println!("* {} *", output);
+        println!("*{}*", " ".repeat(len + 2));
+        println!("{}", "*".repeat(len + 4));
     }
 }
 
