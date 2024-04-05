@@ -1,5 +1,5 @@
-mod unsafe_code;
+mod traits;
 
 fn main() {
-    unsafe_code::example();
+    traits::example();
 }

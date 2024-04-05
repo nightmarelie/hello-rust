@@ -138,6 +138,8 @@ pub fn example() {
 
     println!("1 new tweet: {}", tweet.summarize());
     println!("1 new tweet: {}", article.summarize());
+    
+    let counter = Counter {};
 }
 
 #[cfg(test)]
@@ -147,5 +149,22 @@ mod tests {
     #[test]
     fn test_example() {
         example();
+    }
+}
+
+// Advanced Traits
+pub trait Iterator {
+    type Item; // associated type. Can be used to define a placeholder type in the definition of a trait or struct. The implementor of a trait will specify the concrete type for the associated type.
+
+    fn next(&mut self) -> Option<Self::Item>;
+}
+
+struct Counter {}
+
+impl Iterator for Counter {
+    type Item = u32;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        Some(42)
     }
 }
