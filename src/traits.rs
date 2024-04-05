@@ -139,7 +139,12 @@ pub fn example() {
     println!("1 new tweet: {}", tweet.summarize());
     println!("1 new tweet: {}", article.summarize());
     
-    let counter = Counter {};
+    let human = Human;
+    
+    // human.fly(); // error: multiple `fly` found
+    
+    Pilot::fly(&human);
+    Wizard::fly(&human);
 }
 
 #[cfg(test)]
@@ -197,3 +202,29 @@ impl Add for Point {
         }
     }
 }
+
+// Call the same method with different types
+trait Pilot {
+    fn fly(&self);
+}
+
+trait Wizard {
+    fn fly(&self);
+}
+
+struct Human;
+
+impl Pilot for Human {
+    fn fly(&self) {
+        println!("This is your captain speaking.");
+    }
+}
+
+impl Wizard for Human {
+    fn fly(&self) {
+        println!("Up!");
+    }
+}
+
+
+
