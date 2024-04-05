@@ -150,6 +150,13 @@ mod tests {
     fn test_example() {
         example();
     }
+
+    #[test]
+    fn test_add() {
+        let p1 = Point { x: 1, y: 0 };
+        let p2 = Point { x: 2, y: 3 };
+        assert_eq!(p1 + p2, Point { x: 3, y: 3 });
+    }
 }
 
 // Advanced Traits
@@ -166,5 +173,27 @@ impl Iterator for Counter {
 
     fn next(&mut self) -> Option<Self::Item> {
         Some(42)
+    }
+}
+
+// Default Generic Type Parameters and Operator Overloading
+// The Add trait is defined in the standard library. It is used to overload the + operator.
+
+use std::ops::Add;
+
+#[derive(Debug, PartialEq)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+impl Add for Point {
+    type Output = Point;
+
+    fn add(self, other: Point) -> Point {
+        Point {
+            x: self.x + other.x,
+            y: self.y + other.y,
+        }
     }
 }
