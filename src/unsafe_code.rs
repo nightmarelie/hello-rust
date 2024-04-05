@@ -1,3 +1,13 @@
+static HELLO_WORLD: &str = "Hello, world!"; // global variable
+
+unsafe trait Foo {
+    // methods go here
+}
+
+unsafe impl Foo for i32 {
+    // method implementations go here
+}
+
 extern "C" {
     fn abs(input: i32) -> i32;
 }
@@ -35,8 +45,12 @@ pub fn example() {
     unsafe {
         println!("Absolute value of -3 according to C: {}", abs(-3) );
     }
+    
+    println!("name is : {}", HELLO_WORLD);
 
-    // 4. Implement an unsafe trait
+    // 4. Implement an unsafe trait 
+    
+    // see above code
 
     // 5. Access fields of unions
 }
@@ -57,4 +71,9 @@ fn split_at_mut(slice: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
 
 fn from_raw_parts_mut<T>(ptr: &*mut T, len: &usize) -> &'static mut [T] {
     unsafe { std::slice::from_raw_parts_mut(*ptr, *len) }
+}
+
+#[no_mangle] // don't mangle the name of this function. witch is mean that the name of this function will be the same as the name of the function in the C code
+pub extern "C" fn call_from_c() {
+    println!("Just called a Rust function from C!");
 }
