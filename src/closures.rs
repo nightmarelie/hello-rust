@@ -74,3 +74,9 @@ pub fn capturing() {
     // FnMut can change the environment because it mutably borrows values.
     // Fn borrows values from the environment immutably.
 }
+
+
+// There are three ways to define closures:
+// 1. Using the Fn trait. Means the closure captures values from the environment immutably.
+// 2. Using the FnMut trait. Means the closure can change the environment because it mutably borrows values.
+// 3. Using the FnOnce trait. Means the closure takes ownership of the variables it captures from its enclosing scope.

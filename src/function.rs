@@ -1,4 +1,12 @@
-pub fn example(arg1: bool) -> bool {
+fn add_one(x: i32) -> i32 {
+    x + 1
+}
+
+fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 { // usinf fn pointer as argument
+    f(arg) + f(arg)
+}
+
+pub fn example() {
     // 1. Function
     // 1.1 Functions are declared using the fn keyword
     // 1.2 The return type of the function is declared after an arrow ->
@@ -8,5 +16,9 @@ pub fn example(arg1: bool) -> bool {
     // 1.6 The return keyword can be used to return early from a function
     // 1.7 The return value of the function is the value of the final expression in the block of the body of the function
 
-    arg1
+    let answer = do_twice(add_one, 5);
+    
+    assert_eq!(answer, 12);
+    
+    println!("answer: {}", answer);
 }

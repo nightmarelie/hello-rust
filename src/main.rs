@@ -1,5 +1,5 @@
-mod traits;
+mod function;
 
 fn main() {
-    traits::example();
+    function::example();
 }
