@@ -86,8 +86,24 @@ pub fn example () {
 
     let list_of_strings: Vec<String> = list_of_numbers
         .iter()
-        .map(|i| i.to_string())
+        .map(ToString::to_string)
         .collect();
 
     println!("list_of_strings: {:?}", list_of_strings);
+
+    #[derive(Debug)]
+    enum Status {
+        Value(u32),
+        Stop,
+    }
+    
+    let list_of_statuses: Vec<Status> = (0u32..20)
+        .map(Status::Value)
+        .collect();
+    
+    println!("list_of_statuses: {:?}", list_of_statuses);
+}
+
+fn return_closure() -> Box<dyn Fn(i32) -> i32> {
+    Box::new(|x| x + 1)
 }
