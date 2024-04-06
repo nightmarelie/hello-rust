@@ -2,7 +2,8 @@ fn add_one(x: i32) -> i32 {
     x + 1
 }
 
-fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 { // usinf fn pointer as argument
+fn do_twice<T>(f: T, arg: i32) -> i32 
+where T: Fn(i32) -> i32 {
     f(arg) + f(arg)
 }
 
