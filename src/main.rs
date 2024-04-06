@@ -1,5 +1,5 @@
-mod function;
+mod closures;
 
 fn main() {
-    function::example();
+    closures::example();
 }

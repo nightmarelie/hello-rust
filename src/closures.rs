@@ -80,3 +80,14 @@ pub fn capturing() {
 // 1. Using the Fn trait. Means the closure captures values from the environment immutably.
 // 2. Using the FnMut trait. Means the closure can change the environment because it mutably borrows values.
 // 3. Using the FnOnce trait. Means the closure takes ownership of the variables it captures from its enclosing scope.
+
+pub fn example () {
+    let list_of_numbers = vec![1, 2, 3];
+
+    let list_of_strings: Vec<String> = list_of_numbers
+        .iter()
+        .map(|i| i.to_string())
+        .collect();
+
+    println!("list_of_strings: {:?}", list_of_strings);
+}
