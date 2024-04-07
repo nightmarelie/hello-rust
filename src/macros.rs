@@ -17,7 +17,7 @@ pub fn example() {
     
     let v = vec![1, 2, 3];
     println!("v: {:?}", v);
-    
+
     let v = vec![1, 2, 3, 4, 5];
     println!("v: {:?}", v);
 }
