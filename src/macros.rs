@@ -14,4 +14,23 @@ pub fn example() {
     // 1.12 Declarative macros are also known as macros by example
     // 1.13 Procedural macros are also known as custom derive macros
     // 1.14 Macros can be used to generate code for different architectures
+    
+    let v = vec![1, 2, 3];
+    println!("v: {:?}", v);
+    
+    let v = vec![1, 2, 3, 4, 5];
+    println!("v: {:?}", v);
+}
+
+#[macro_export]
+macro_rules! vec {
+    ( $( $x:expr ),* ) => {
+        {
+            let mut temp_vec = Vec::new();
+            $(
+                temp_vec.push($x);
+            )*
+            temp_vec
+        }
+    };
 }

@@ -1,5 +1,5 @@
-mod closures;
+mod macros;
 
 fn main() {
-    closures::example();
+    macros::example();
 }
