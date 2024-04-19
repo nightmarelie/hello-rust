@@ -20,6 +20,8 @@ pub fn example() -> i32 {
     // 2.2 Constants can be declared in any scope, including the global scope
     // 2.3 Constants mast be annotated with a type
     // 2.4 Constants can only be set to a constant expression, not the result of a function call or any other value that could only be computed at runtime
+    static MAX_POINTS: u32 = 100_000;
+
     const MAX_POINTS: u32 = 100_000;
 
     // 3. Shadowing
