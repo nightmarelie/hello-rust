@@ -75,19 +75,15 @@ pub fn capturing() {
     // Fn borrows values from the environment immutably.
 }
 
-
 // There are three ways to define closures:
 // 1. Using the Fn trait. Means the closure captures values from the environment immutably.
 // 2. Using the FnMut trait. Means the closure can change the environment because it mutably borrows values.
 // 3. Using the FnOnce trait. Means the closure takes ownership of the variables it captures from its enclosing scope.
 
-pub fn example () {
+pub fn example() {
     let list_of_numbers = vec![1, 2, 3];
 
-    let list_of_strings: Vec<String> = list_of_numbers
-        .iter()
-        .map(ToString::to_string)
-        .collect();
+    let list_of_strings: Vec<String> = list_of_numbers.iter().map(ToString::to_string).collect();
 
     println!("list_of_strings: {:?}", list_of_strings);
 
@@ -96,14 +92,46 @@ pub fn example () {
         Value(u32),
         Stop,
     }
-    
-    let list_of_statuses: Vec<Status> = (0u32..20)
-        .map(Status::Value)
-        .collect();
-    
+
+    let list_of_statuses: Vec<Status> = (0u32..20).map(Status::Value).collect();
+
     println!("list_of_statuses: {:?}", list_of_statuses);
 }
 
 fn return_closure() -> Box<dyn Fn(i32) -> i32> {
     Box::new(|x| x + 1)
+}
+
+#[derive(Debug, PartialEq, Copy, Clone)]
+pub enum ShirtColor {
+    Red,
+    Blue,
+}
+
+pub struct Inventory {
+    pub shirts: Vec<ShirtColor>,
+}
+
+impl Inventory {
+    pub fn giveaway(&self, user_preference: Option<ShirtColor>) -> ShirtColor {
+        user_preference.unwrap_or_else(|| self.most_stocked())
+    }
+
+    fn most_stocked(&self) -> ShirtColor {
+        let mut num_red = 0;
+        let mut num_blue = 0;
+
+        for color in &self.shirts {
+            match color {
+                ShirtColor::Blue => num_blue += 1,
+                ShirtColor::Red => num_red += 1,
+            }
+        }
+
+        if num_red > num_blue {
+            ShirtColor::Red
+        } else {
+            ShirtColor::Blue
+        }
+    }
 }
