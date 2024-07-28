@@ -40,6 +40,7 @@ where
     }
 }
 
+#[allow(dead_code)]
 pub fn generate_workout(intensity: u32, random_number: u32) {
     let mut cached_result = Cacher::new(|num| {
         println!("calculating slowly...");
@@ -59,6 +60,7 @@ pub fn generate_workout(intensity: u32, random_number: u32) {
     }
 }
 
+#[allow(dead_code)]
 pub fn capturing() {
     let x = 4;
 
@@ -80,6 +82,7 @@ pub fn capturing() {
 // 2. Using the FnMut trait. Means the closure can change the environment because it mutably borrows values.
 // 3. Using the FnOnce trait. Means the closure takes ownership of the variables it captures from its enclosing scope.
 
+#[allow(dead_code)]
 pub fn example() {
     let list_of_numbers = vec![1, 2, 3];
 
@@ -98,6 +101,7 @@ pub fn example() {
     println!("list_of_statuses: {:?}", list_of_statuses);
 }
 
+#[allow(dead_code)]
 fn return_closure() -> Box<dyn Fn(i32) -> i32> {
     Box::new(|x| x + 1)
 }
