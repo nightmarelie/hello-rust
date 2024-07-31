@@ -9,6 +9,23 @@ use std::time::Duration;
 //     intensity
 // }
 
+// enum Option <T>{
+//     Some(T),
+//     None,
+// }
+// 
+// impl<T> Option<T> {
+//     pub fn unwrap_or_else<F>(self, f: F) -> T
+//     where
+//         F: FnOnce() -> T
+//     {
+//         match self {
+//             Some(x) => x,
+//             None => f(),
+//         }
+//     }
+// }
+
 struct Cacher<T>
 where
     T: Fn(u32) -> u32,
