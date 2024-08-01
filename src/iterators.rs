@@ -34,6 +34,15 @@ impl Counter {
     }
 }
 
+// example of Iterator trait
+// pub trait Iterator {
+//     type Item;
+//
+//     fn next(&mut self) -> Option<Self::Item>;
+//
+//     // methods with default implementations elided
+// }
+
 impl Iterator for Counter {
     type Item = u32;
 
