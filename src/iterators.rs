@@ -113,7 +113,7 @@ mod tests {
     fn iterator_demonstration() {
         let v1 = vec![1, 2, 3];
 
-        let mut v1_iter = v1.iter();
+        let mut v1_iter = v1.iter(); // should be mut cause next call change internal state
 
         assert_eq!(v1_iter.next(), Some(&1));
         assert_eq!(v1_iter.next(), Some(&2));
