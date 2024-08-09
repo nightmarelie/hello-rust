@@ -170,3 +170,12 @@ mod tests {
         assert_eq!(mock_messenger.sent_messages.borrow().len(), 1);
     }
 }
+
+
+struct MyBox<T>(T);
+
+impl<T> MyBox<T> {
+    fn new(x: T) -> MyBox<T> {
+        MyBox(x)
+    }
+}
