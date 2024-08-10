@@ -51,6 +51,9 @@ enum Message {
 pub fn example() {
     let list = Cons(1, Box::new(Const(2, Box::new(Nil))));
 
+    let m = MyBox::new(String::from("Rust"));
+    hello(&m); // example of coercion
+
     let b = Box::new(5);
 
     println!("b = {}", b);
@@ -181,10 +184,13 @@ impl<T> MyBox<T> {
 }
 
 impl<T> Deref for MyBox<T> {
-    type Target = T;
+    type Target = T; // Associated type
 
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
+fn hello(name: &str) -> () {
+    println!("Hello, {name}");
+}
