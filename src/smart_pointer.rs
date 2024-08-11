@@ -191,6 +191,12 @@ impl<T> Deref for MyBox<T> {
     }
 }
 
+impl<T> Drom for MyBox<T> {
+    fn drop(&mut self) {
+        println!("Dropping MyBox with data {}", self.0);
+    }
+}
+
 fn hello(name: &str) -> () {
     println!("Hello, {name}");
 }
