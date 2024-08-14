@@ -18,7 +18,7 @@ pub fn example() -> () {
 
     let v = vec![1, 2, 3];
     
-    let handle = thread::spawn(|| {
+    let handle = thread::spawn(move || {
         println!("here's a vector: {v:?}");
     });
     
