@@ -1,4 +1,4 @@
-use std::sync::mpsc; // Stands for multiple producer, single consumer
+use std::sync::{mpsc, Mutex}; // Stands for multiple producer, single consumer
 use std::thread;
 use std::time::Duration;
 
@@ -7,16 +7,16 @@ pub fn example() -> () {
     // tx stands for transmitter
     // rx stands for receiver
     let (tx, rx) = mpsc::channel();
-    
+
     thread::spawn(move || {
         let val = String::from("hi");
-        
+
         tx.send(val).unwrap();
     });
-    
+
     let received = rx.recv().unwrap();
     println!("Got: {received}");
-    
+
     let handle = thread::spawn(|| {
         for i in 1..10 {
             println!("hi number {i} from the spawned thread!");
@@ -59,9 +59,9 @@ pub fn example() -> () {
         println!("Got: {received}");
     }
     let (tx, rx) = mpsc::channel();
-    
+
     let tx1 = tx.clone();
-    
+
     thread::spawn(move || {
         let vals = vec![
             String::from("hi"),
@@ -93,4 +93,15 @@ pub fn example() -> () {
     for received in rx {
         println!("Got: {received}");
     }
+
+    // Mutex
+
+    let m = Mutex:: new(4);
+
+    {
+        let mut num = m.lock().unwrap();
+        *num = 6;
+    }
+
+    println!("m = {m:?}");
 }
