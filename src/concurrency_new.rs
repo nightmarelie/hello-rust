@@ -1,27 +1,28 @@
-use std::sync::{mpsc, Mutex}; // Stands for multiple producer, single consumer
+use std::rc::Rc;
+use std::sync::Mutex;
+// Stands for multiple producer, single consumer
 use std::thread;
-use std::time::Duration;
 
 pub fn example() -> () {
-    
-    let counter = Mutex::new(0);
+    let counter = Rc::new(Mutex::new(0));
     let mut handles = vec![];
-    
+
     for _ in 0..10 {
+        let counter = Rc::clone(&counter);
         let handle = thread::spawn(move || {
             let mut num = counter.lock().unwrap();
-            
+
             *num += 1;
         });
-        
         handles.push(handle);
     }
-    
+
     for handle in handles {
         handle.join().unwrap();
     }
 
     println!("Result: {}", *counter.lock().unwrap());
+
 
 
     // introduce channel
