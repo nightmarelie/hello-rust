@@ -1,5 +1,3 @@
-mod concurrency_new;
+mod design_pattern;
 
-fn main() {
-    concurrency_new::example();
-}
+fn main() {}
