@@ -1,5 +1,6 @@
 pub struct Post {
     state: Option<Box<dyn State>>,
+    content: String,
 }
 
 trait State {}
@@ -10,7 +11,10 @@ impl State for Draft {}
 
 impl Post {
     fn new() -> Post {
-        Post { state: None }
+        Post { 
+            state: Some(Box::new(Draft {})),
+            content: String::new(),
+        }
     }
 }
 
