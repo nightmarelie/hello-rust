@@ -1,3 +1,5 @@
 mod design_pattern;
 
-fn main() {}
+fn main() {
+    design_pattern::example();
+}
