@@ -21,7 +21,7 @@ impl Post {
         self.content.push_str(text);
     }
     
-    pub fn content(&self) -> &String {
+    pub fn content(&self) -> &str {
         &self.content
     }
 }
