@@ -44,6 +44,12 @@ impl Post {
             self.state = Some(s.request_review())
         }
     }
+
+    pub fn approve(&mut self) {
+        if let Some(s) = self.state.take() {
+            self.state = Some(s.approve())
+        }
+    }
 }
 
 pub fn example() {
