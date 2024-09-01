@@ -5,6 +5,7 @@ pub struct Post {
 
 trait State {
     fn request_review(self: Box<Self>) -> Box<dyn State>;
+    fn approve(self: Box<Self>) -> Box<dyn State>;
 }
 
 struct Draft {}
