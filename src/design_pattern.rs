@@ -57,7 +57,7 @@ impl Post {
     }
     
     pub fn content(&self) -> &str {
-        &self.content
+        self.state.as_ref().unwrap().content(self)
     }
 
     pub fn request_review(&mut self) {
