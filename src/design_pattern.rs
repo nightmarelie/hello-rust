@@ -1,5 +1,4 @@
 pub struct Post {
-    state: Option<Box<dyn State>>,
     content: String,
 }
 
@@ -65,18 +64,6 @@ impl Post {
 
     pub fn content(&self) -> &str {
         &self.content
-    }
-
-    pub fn request_review(&mut self) {
-        if let Some(s) = self.state.take() {
-            self.state = Some(s.request_review())
-        }
-    }
-
-    pub fn approve(&mut self) {
-        if let Some(s) = self.state.take() {
-            self.state = Some(s.approve())
-        }
     }
 }
 
