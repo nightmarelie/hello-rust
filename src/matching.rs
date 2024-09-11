@@ -16,7 +16,7 @@ pub fn example() {
         // _ => println!("Some other language!"), // This is not needed because we are matching all the variants. The _ pattern will match all values (catchall pattern).
     }
 
-    let mut stack = vec![];
+    let mut stack = Vec::new();
 
     stack.push(1);
     stack.push(2);

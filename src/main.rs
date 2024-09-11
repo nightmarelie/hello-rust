@@ -1,5 +1,5 @@
-mod design_pattern;
+mod matching;
 
 fn main() {
-    design_pattern::example();
+    matching::example();
 }
