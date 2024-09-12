@@ -6,6 +6,12 @@ enum Language {
 }
 
 pub fn example() {
+    let v = vec!['a', 'b', 'c'];
+    
+    for (index, value) in v.iter().enumerate() {
+        println!("{value} is at index {index}");
+    }
+    
     let lang = Language::Rust;
 
     match lang {
