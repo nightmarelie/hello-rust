@@ -70,6 +70,15 @@ pub fn example() {
 
     // Can only accept irrefutable patterns
     // function parameters, let statements, and for loops
+
+    // multiple patterns
+    let x = 1;
+
+    match x {
+        1 | 2 => println!("one or two"),
+        3 => println!("three"),
+        _ => println!("anything"),
+    }
 }
 
 fn print_coordinates(&(x, y): &(i32, i32)) {
