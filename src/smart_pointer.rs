@@ -1,6 +1,7 @@
 use std::cell::RefCell;
 use std::rc::{Rc, Weak};
 use List::{Cons, Nil};
+use BoxList::{Cons, Nil};
 
 // Smart pointers are data structures that not only act like a pointer but also have additional metadata and capabilities.
 // The smart pointer pattern is a general programming pattern that you can implement in Rust using trait implementations.
@@ -15,6 +16,11 @@ use List::{Cons, Nil};
 enum List {
     // reference counting
     Cons(i32, RefCell<Rc<List>>),
+    Nil,
+}
+
+enum BoxList {
+    Cons(i32, Box<BoxList>),
     Nil,
 }
 
@@ -43,6 +49,8 @@ enum Message {
 }
 
 pub fn example() {
+    let list = Cons(1, Box::new(Const(2, Box::new(Nil))));
+
     let b = Box::new(5);
 
     println!("b = {}", b);
