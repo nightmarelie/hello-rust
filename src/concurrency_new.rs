@@ -6,7 +6,13 @@ pub fn example() -> () {
     // introduce channel
     // tx stands for transmitter
     // rx stands for receiver
-    let (tx, rx) = mpsc::channel();
+    let (tx, _rx) = mpsc::channel();
+    
+    thread::spawn(move || {
+        let val = String::from("hi");
+        
+        tx.send(val).unwrap();
+    });
     
     let handle = thread::spawn(|| {
         for i in 1..10 {
