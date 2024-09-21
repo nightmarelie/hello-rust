@@ -1,8 +1,13 @@
-use std::sync::mpsc;
+use std::sync::mpsc; // Stands for multiple producer, single consumer
 use std::thread;
 use std::time::Duration;
 
 pub fn example() -> () {
+    // introduce channel
+    // tx stands for transmitter
+    // rx stands for receiver
+    let (tx, rx) = mpsc::channel();
+    
     let handle = thread::spawn(|| {
         for i in 1..10 {
             println!("hi number {i} from the spawned thread!");
@@ -24,7 +29,4 @@ pub fn example() -> () {
     });
     
     handle.join().unwrap();
-    
-    // introduce channel
-    let (tx, rx) = mpsc::channel();
 }
