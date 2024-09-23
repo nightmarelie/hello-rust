@@ -99,6 +99,15 @@ pub fn example() {
         1..=5 => println!("one through five"),
         _ => println!("something else"),
     }
+
+    // the same but for characters
+    let x = 'c';
+
+    match x {
+        'a'..='j' => println!("early ASCII letter"),
+        'k'..='z' => println!("late ASCII letter"),
+        _ => println!("something else"),
+    }
 }
 
 fn print_coordinates(&(x, y): &(i32, i32)) {
