@@ -48,7 +48,7 @@ pub trait Draw {
 }
 
 pub struct Screen {
-    pub components: Vec<Box<dyn Draw>>, // dyn stands fot dynamic dispatch
+    pub components: Vec<Box<dyn Draw>>, // dyn stands fot dynamic dispatch. And also define trait that should be implemented
 }
 
 impl Screen {
