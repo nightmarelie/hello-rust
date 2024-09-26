@@ -57,7 +57,6 @@ impl Post {
         }
     }
 
-
     pub fn add_text(&mut self, text: &str) {
         self.content.push_str(text);
     }
@@ -76,7 +75,6 @@ impl DraftPost {
         self.content.push_str(text);
     }
 
-    
     pub fn request_review(self) -> PendingReviewPost {
         PendingReviewPost {
             content: self.content,
@@ -96,10 +94,9 @@ impl PendingReviewPost {
     }
 }
 
-
 pub fn example() {
     let mut post = Post::new();
-    
+
     post.add_text("I ate a salad for lunch today");
 
     let post = post.request_review();
@@ -107,5 +104,4 @@ pub fn example() {
     let post = post.approve();
 
     assert_eq!("I ate a salad for lunch today", post.content());
-
 }
