@@ -201,6 +201,19 @@ pub fn example() {
             println!("Some numbers: {first}, {third}, {fifth}")
         }
     }
+
+    // ignoring remaining parts of values with ..
+    struct Point1 {
+        x: i32,
+        y: i32,
+        z: i32,
+    }
+
+    let origin = Point1 { x: 0, y: 0, z: 0 };
+
+    match origin {
+        Point1 { x, .. } => println!("x is {x}"),
+    }
 }
 
 // ignoring entire value
