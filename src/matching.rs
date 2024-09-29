@@ -189,6 +189,9 @@ pub fn example() {
         }
         _ => (),
     }
+
+    // destructuring structs and tuples
+    let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
 }
 
 fn print_coordinates(&(x, y): &(i32, i32)) {
