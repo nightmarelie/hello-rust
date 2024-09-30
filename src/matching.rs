@@ -192,6 +192,15 @@ pub fn example() {
 
     // destructuring structs and tuples
     let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
+
+    // ignoring a few values
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (first, _, third, _, fifth) => {
+            println!("Some numbers: {first}, {third}, {fifth}")
+        }
+    }
 }
 
 // ignoring entire value
