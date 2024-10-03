@@ -1,5 +1,13 @@
 static HELLO_WORLD: &str = "Hello, world!"; // global variable
 
+static mut COUNTER: u32 = 0;
+
+fn add_to_count(inc: u32) {
+    unsafe {
+        COUNTER += inc;
+    }
+}
+
 unsafe trait Foo {
     // methods go here
 }
@@ -14,6 +22,11 @@ extern "C" {
 
 pub fn example() {
     // Unsafe code ability:
+
+    // 0. Reading from or writing to a mutable static variable is unsafe
+    unsafe {
+        println!("COUNTER: {COUNTER}");
+    }
 
     // 1. Dereferencing a raw pointer
     let mut num = 5;
