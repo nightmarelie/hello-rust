@@ -100,3 +100,65 @@ impl Template {
         self.into()
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn it_works() {
+        let post = BlogPost::new("Builder APIs in Rust".to_string())
+            .post("do this, then that".to_string());
+
+        assert_eq!(
+            BlogPost {
+                title: "Builder APIs in Rust".to_string(),
+                frontmatter: BTreeMap::from([
+                    (
+                        "slug".to_string(),
+                        Value::String("builder-apis-in-rust".to_string()),
+                    ),
+                    ("tags".to_string(), Value::Array(vec![])),
+                    (
+                        "title".to_string(),
+                        Value::String("Builder APIs in Rust".to_string())
+                    )
+                ]),
+                tags: BTreeSet::new(),
+                slug: "builder-apis-in-rust".to_string(),
+                body: "do this, then that".to_string()
+            },
+            post
+        );
+    }
+
+    #[test]
+    fn to_frontmatter() {
+        let post = BlogPost::new("Builder APIs in Rust".to_string())
+            .post("do this, then that".to_string());
+
+        assert_eq!(
+            "slug: builder-apis-in-rust
+tags: []
+title: Builder APIs in Rust
+",
+            post.as_frontmatter()
+        );
+    }
+
+    #[test]
+    fn to_file() {
+        let post = BlogPost::new("Builder APIs in Rust".to_string())
+            .post("do this, then that".to_string());
+
+        assert_eq!(
+            "slug: builder-apis-in-rust
+tags: []
+title: Builder APIs in Rust
+---
+
+do this, then that",
+            post.as_file()
+        );
+    }
+}
