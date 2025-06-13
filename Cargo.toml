@@ -9,6 +9,10 @@ edition = "2021"
 rand = "0.8.5"
 colored = "2.1.0"
 unicode-segmentation = "1.11.0"
+serde = { version = "1.0.145", features = ["derive"] }
+serde_json = "1.0.85"
+serde_yaml = "0.9.13"
+slug = "0.1.4"
 
 # Specify optimisation levels for different profiles
 # 0 = no optimisation
